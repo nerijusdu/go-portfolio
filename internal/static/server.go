@@ -13,6 +13,7 @@ func ServeStaticFiles(route string, r chi.Router) {
 	workDir, _ := os.Getwd()
 	filesDir := http.Dir(filepath.Join(workDir, "www"))
 	fileServer(r, route, filesDir)
+	serveFavicon(route, r)
 }
 
 func fileServer(r chi.Router, path string, root http.FileSystem) {
@@ -31,5 +32,12 @@ func fileServer(r chi.Router, path string, root http.FileSystem) {
 		pathPrefix := strings.TrimSuffix(rctx.RoutePattern(), "/*")
 		fs := http.StripPrefix(pathPrefix, http.FileServer(root))
 		fs.ServeHTTP(w, r)
+	})
+}
+
+func serveFavicon(staticRoute string, r chi.Router) {
+	r.Get("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Location", staticRoute+"/favicon.ico")
+		w.WriteHeader(http.StatusPermanentRedirect)
 	})
 }

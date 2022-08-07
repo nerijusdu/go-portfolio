@@ -22,6 +22,6 @@ func main() {
 
 	static.ServeStaticFiles("/static", r)
 
-	fmt.Println("Starting server")
+	fmt.Println("Starting server on http://localhost:3001")
 	http.ListenAndServe(":3001", r)
 }
