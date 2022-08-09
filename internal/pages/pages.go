@@ -15,5 +15,5 @@ func CreatePagesRouter() chi.Router {
 }
 
 func homePage(w http.ResponseWriter, r *http.Request) {
-	renderPage("home", w)
+	renderPage(w, "home")
 }

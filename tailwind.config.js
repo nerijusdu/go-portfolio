@@ -2,7 +2,20 @@
 module.exports = {
   content: ["./templates/**/*.html"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'background-1': '#1a202c'
+      },
+      fontFamily: {
+        'roboto': ['Roboto', 'sans-serif']
+      },
+      container: {
+        center: true
+      },
+      spacing: {
+        '1440': '1440px'
+      }
+    }
   },
   plugins: [],
 }

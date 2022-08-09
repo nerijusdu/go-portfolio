@@ -1,3 +1,4 @@
 tmp/
 www/**/*min.css
 node_modules/
+.vscode/

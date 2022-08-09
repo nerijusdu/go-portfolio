@@ -6,12 +6,19 @@ import (
 	"text/template"
 )
 
-func renderPage(name string, w http.ResponseWriter) error {
-	tmpl, err := template.ParseFiles(
-		"templates/pages/"+name+".html",
+func renderPage(w http.ResponseWriter, names ...string) error {
+	for i := 0; i < len(names); i++ {
+		names[i] = "templates/pages/" + names[i] + ".html"
+	}
+
+	names = append(names,
 		"templates/partials/header.html",
 		"templates/partials/footer.html",
+		"templates/partials/navigation.html",
 	)
+
+	// TODO: cache parsed templates?
+	tmpl, err := template.ParseFiles(names...)
 
 	if err != nil {
 		somethingWentWrong(w, err)

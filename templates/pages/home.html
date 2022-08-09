@@ -1,5 +1,42 @@
 {{template "header"}}
 
-<div class="bg-blue-500">hi</div>
+{{template "navigation"}}
+
+<div class="flex sm:flex-row flex-col border-solid border-b border-slate-700 pr-4">
+  <div class="mx-0 sm:mx-6 my-8 w-full h-auto sm:w-36 sm:h-36 shrink-0 flex justify-center">
+    <img
+      src="https://avatars.githubusercontent.com/u/10132882"
+      class="rounded-full w-2/5 sm:w-36 h-auto sm:h-36"
+    />
+  </div>
+
+  <div class="m-4 tracking-wide grow">
+    <p class="font-semibold text-3xl pb-2">Hi! 👋</p>
+    <p class="text-xl pb-2 font-normal">
+      My name is Nerijus and I'm a Full Stack Developer from Lithuania currently working at 
+      <a class="text-emerald-500 hover:underline cursor-pointer" href="https://billo.app/">
+        Billo.
+      </a>
+    </p>
+    <p class="text-xl">
+      This is a place where I will (try to) document my 
+      <a class="text-emerald-500 hover:underline cursor-pointer" href="/projects">
+        side projects<!--
+   --></a>
+      and other stuff that I have done.
+    </p>
+  </div>
+
+  <div class="shrink-0 py-4 flex self-start gap-4 mx-4 sm:mr-0">
+    <a href="https://github.com/nerijusdu">
+      <img src="/static/icons/github.svg" class="w-7"/>
+    </a>
+    <a href="https://www.linkedin.com/in/nerijus-dulke">
+      <img src="/static/icons/linkedin.svg" class="w-7"/>
+    </a>
+  </div>
+</div>
+
+
 
 {{template "footer"}}
