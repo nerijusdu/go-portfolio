@@ -1,0 +1,22 @@
+{{define "projectList"}}
+
+<div class="flex items-center flex-col px-4 my-4">
+  {{range .}}
+    <div class="border-slate-700 border mx-4 mb-4 pl-4 flex gap-4 rounded-sm w-full">
+      <div class="flex flex-col justify-center grow py-5">
+        <div class="pb-4 font-semibold text-xl">{{.Name}}</div>
+        <div class="border-slate-700 border-b pb-2">{{.Description}}</div>
+        <div class="flex py-2 gap-2">
+          {{range .Tags}}
+            <div class="bg-emerald-700/30 text-green-300 px-3 py-1 rounded-md">{{.}}</div>
+          {{end}}
+        </div>
+      </div>
+      {{if (ne .ImageUrl "")}}
+        <img class="max-w-xs hidden sm:block" src="{{.ImageUrl}}" />
+      {{end}}
+    </div>
+  {{end}}
+</div>
+
+{{end}}

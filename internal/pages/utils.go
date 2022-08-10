@@ -6,26 +6,38 @@ import (
 	"text/template"
 )
 
-func renderPage(w http.ResponseWriter, names ...string) error {
-	for i := 0; i < len(names); i++ {
-		names[i] = "templates/pages/" + names[i] + ".html"
+type NameOrData interface {
+	string | any
+}
+
+func renderPage(w http.ResponseWriter, namesOrData ...NameOrData) error {
+	var data any = nil
+	templates := make([]string, 0)
+
+	for i := 0; i < len(namesOrData); i++ {
+		switch v := namesOrData[i].(type) {
+		case string:
+			templates = append(templates, "templates/"+v+".html")
+		default:
+			data = v
+		}
 	}
 
-	names = append(names,
+	templates = append(templates,
 		"templates/partials/header.html",
 		"templates/partials/footer.html",
 		"templates/partials/navigation.html",
 	)
 
 	// TODO: cache parsed templates?
-	tmpl, err := template.ParseFiles(names...)
+	tmpl, err := template.ParseFiles(templates...)
 
 	if err != nil {
 		somethingWentWrong(w, err)
 		return err
 	}
 
-	if err = tmpl.Execute(w, nil); err != nil {
+	if err = tmpl.Execute(w, data); err != nil {
 		somethingWentWrong(w, err)
 		return err
 	}
