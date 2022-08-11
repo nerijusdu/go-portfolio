@@ -1,0 +1,57 @@
+package data
+
+import (
+	"fmt"
+	"html/template"
+	"io/ioutil"
+
+	"github.com/gomarkdown/markdown"
+	"gopkg.in/yaml.v2"
+)
+
+func ReadProjects() ([]Project, error) {
+	projects, err := readYaml[[]Project]("projects.yaml")
+	if err != nil {
+		return nil, err
+	}
+
+	for i := 0; i < len(projects); i++ {
+		if p := projects[i]; p.LongDescriptionPath != "" {
+			html, err := mdPathToHtml(p.LongDescriptionPath)
+			if err != nil {
+				return nil, fmt.Errorf("Failed to parse MD for ID:%d. %v", p.Id, err)
+			}
+
+			projects[i].LongDescriptionHTML = html
+		}
+	}
+
+	return projects, nil
+}
+
+func readYaml[T any](path string) (T, error) {
+	var result T
+	data, err := ioutil.ReadFile("data/" + path)
+	if err != nil {
+		return result, err
+	}
+
+	err = yaml.Unmarshal(data, &result)
+	if err != nil {
+		return result, err
+	}
+
+	return result, nil
+}
+
+func mdPathToHtml(path string) (template.HTML, error) {
+	content, err := ioutil.ReadFile("data/" + path)
+	if err != nil {
+		return "", err
+	}
+
+	content = markdown.NormalizeNewlines(content)
+	output := markdown.ToHTML(content, nil, nil)
+
+	return template.HTML(output), nil
+}

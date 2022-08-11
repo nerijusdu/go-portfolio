@@ -1,0 +1,13 @@
+- id: 1
+  name: Test
+  description: Short description
+  longDescription: Long description
+  longDescriptionPath: descriptions/test.md
+  url: https://github.com/
+  imageUrl: https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png
+  repositoryUrl: https://github.com/
+  tags:
+    - JS
+    - TS
+    - GO
+  order: 1
