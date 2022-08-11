@@ -4,6 +4,7 @@ import "html/template"
 
 type Project struct {
 	Id                  int    `yaml:"id"`
+	Slug                string `yaml:"slug"`
 	Name                string `yaml:"name"`
 	Description         string `yaml:"description"`
 	LongDescription     string `yaml:"longDescription"`

@@ -9,7 +9,7 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-func ReadProjects() ([]Project, error) {
+func readProjects() ([]Project, error) {
 	projects, err := readYaml[[]Project]("projects.yaml")
 	if err != nil {
 		return nil, err

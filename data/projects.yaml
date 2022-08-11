@@ -1,5 +1,6 @@
 - id: 1
   name: Test
+  slug: test
   description: Short description
   longDescription: Long description
   longDescriptionPath: descriptions/test.md
