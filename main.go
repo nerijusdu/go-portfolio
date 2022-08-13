@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
@@ -12,12 +13,13 @@ import (
 )
 
 func main() {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3001"
+	}
+
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
-
-	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Ok"))
-	})
 
 	r.Mount("/", pages.CreatePagesRouter())
 	r.Mount("/api", api.CreateApiRouter())
@@ -25,5 +27,5 @@ func main() {
 	static.ServeStaticFiles("/static", r)
 
 	fmt.Println("Starting server on http://localhost:3001")
-	http.ListenAndServe(":3001", r)
+	http.ListenAndServe(":"+port, r)
 }
