@@ -12,6 +12,7 @@ import (
 func ServeStaticFiles(route string, r chi.Router) {
 	workDir, _ := os.Getwd()
 	filesDir := http.Dir(filepath.Join(workDir, "www"))
+	serveDataAssets(route, r)
 	fileServer(r, route, filesDir)
 	serveFavicon(route, r)
 }
@@ -40,4 +41,10 @@ func serveFavicon(staticRoute string, r chi.Router) {
 		w.Header().Set("Location", staticRoute+"/favicon.ico")
 		w.WriteHeader(http.StatusPermanentRedirect)
 	})
+}
+
+func serveDataAssets(staticRoute string, r chi.Router) {
+	workdir, _ := os.Getwd()
+	publicDataDir := http.Dir(filepath.Join(workdir, "/data/public"))
+	fileServer(r, "/data", publicDataDir)
 }

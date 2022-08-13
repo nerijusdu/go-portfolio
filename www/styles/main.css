@@ -37,11 +37,11 @@
   }
 
   .markdown h1 {
-    @apply leading-tight border-b border-slate-700 text-4xl font-semibold mb-4 mt-6 pb-2;
+    @apply leading-tight border-b border-slate-700 text-3xl font-semibold mb-4 mt-6 pb-2;
   }
 
   .markdown h2 {
-    @apply leading-tight border-b border-slate-700 text-2xl font-semibold mb-4 mt-6 pb-2;
+    @apply leading-tight border-b border-slate-700 text-xl font-semibold mb-4 mt-6 pb-2;
   }
 
   .markdown h3 {
