@@ -29,7 +29,7 @@
   }
 
   .markdown a {
-    @apply text-blue-600 font-semibold;
+    @apply text-emerald-500 hover:underline cursor-pointer;
   }
 
   .markdown strong a {
@@ -37,11 +37,11 @@
   }
 
   .markdown h1 {
-    @apply leading-tight border-b text-4xl font-semibold mb-4 mt-6 pb-2;
+    @apply leading-tight border-b border-slate-700 text-4xl font-semibold mb-4 mt-6 pb-2;
   }
 
   .markdown h2 {
-    @apply leading-tight border-b text-2xl font-semibold mb-4 mt-6 pb-2;
+    @apply leading-tight border-b border-slate-700 text-2xl font-semibold mb-4 mt-6 pb-2;
   }
 
   .markdown h3 {
