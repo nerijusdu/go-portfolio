@@ -1,9 +1,9 @@
-name: Publish docker image to SaveMyBank registry
+name: Build docker image and publish to registry
 
 on:
   push:
     branches:
-      - master
+      - release/*
   workflow_dispatch:
 
 env:
