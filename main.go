@@ -6,6 +6,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/nerijusdu/go-portfolio/internal/api"
 	"github.com/nerijusdu/go-portfolio/internal/pages"
 	"github.com/nerijusdu/go-portfolio/internal/static"
 )
@@ -19,6 +20,7 @@ func main() {
 	})
 
 	r.Mount("/", pages.CreatePagesRouter())
+	r.Mount("/api", api.CreateApiRouter())
 
 	static.ServeStaticFiles("/static", r)
 
