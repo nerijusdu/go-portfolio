@@ -3,7 +3,6 @@ package data
 import "html/template"
 
 type Project struct {
-	Id                  int    `yaml:"id"`
 	Slug                string `yaml:"slug"`
 	Name                string `yaml:"name"`
 	Description         string `yaml:"description"`
@@ -15,4 +14,14 @@ type Project struct {
 	ImageUrl            string   `yaml:"imageUrl"`
 	RepositoryUrl       string   `yaml:"repositoryUrl"`
 	Order               int      `yaml:"order"`
+}
+
+type Blog struct {
+	Slug        string `yaml:"slug"`
+	Title       string `yaml:"title"`
+	Description string `yaml:"description"`
+	Date        string `yaml:"date"`
+	ImageUrl    string `yaml:"imageUrl"`
+	Path        string `yaml:"path"`
+	HTML        template.HTML
 }

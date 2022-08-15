@@ -4,4 +4,5 @@ import "github.com/nerijusdu/go-portfolio/internal/data"
 
 type HomePageModel struct {
 	Projects []data.Project
+	Blogs    []data.Blog
 }

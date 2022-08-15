@@ -19,7 +19,7 @@ func readProjects() ([]Project, error) {
 		if p := projects[i]; p.LongDescriptionPath != "" {
 			html, err := mdPathToHtml(p.LongDescriptionPath)
 			if err != nil {
-				return nil, fmt.Errorf("Failed to parse MD for ID:%d. %v", p.Id, err)
+				return nil, fmt.Errorf("Failed to parse MD for project: %s. %v", p.Slug, err)
 			}
 
 			projects[i].LongDescriptionHTML = html
@@ -27,6 +27,26 @@ func readProjects() ([]Project, error) {
 	}
 
 	return projects, nil
+}
+
+func readBlogs() ([]Blog, error) {
+	blogs, err := readYaml[[]Blog]("blogs.yaml")
+	if err != nil {
+		return nil, err
+	}
+
+	for i := 0; i < len(blogs); i++ {
+		if b := blogs[i]; b.Path != "" {
+			html, err := mdPathToHtml(b.Path)
+			if err != nil {
+				return nil, fmt.Errorf("Failed to parse MD for blog: %s. %v", b.Slug, err)
+			}
+
+			blogs[i].HTML = html
+		}
+	}
+
+	return blogs, nil
 }
 
 func readYaml[T any](path string) (T, error) {
