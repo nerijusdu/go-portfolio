@@ -20,6 +20,7 @@ func main() {
 
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
+	r.Use(middleware.Recoverer)
 
 	r.Mount("/", pages.CreatePagesRouter())
 	r.Mount("/api", api.CreateApiRouter())

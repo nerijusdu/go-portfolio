@@ -38,16 +38,20 @@
   </div>
 </div>
 
-<div class="text-3xl font-bold pt-4 text-center">
-  Some of the things I've made
-</div>
+{{if ne (len .Projects) 0}}
+  <div class="text-3xl font-bold pt-4 text-center">
+    Some of the things I've made
+  </div>
 
-{{template "projectList" .Projects}}
+  {{template "projectList" .Projects}}
+{{end}}
 
-<div class="text-3xl font-bold pt-4 text-center">
-  Some of the things I wrote
-</div>
+{{if ne (len .Blogs) 0}}
+  <div class="text-3xl font-bold pt-4 text-center">
+    Some of the things I wrote
+  </div>
 
-{{template "blogList" .Blogs}}
+  {{template "blogList" .Blogs}}
+{{end}}
 
 {{template "footer"}}

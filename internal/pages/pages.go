@@ -26,8 +26,8 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 		"partials/projectList",
 		"partials/blogList",
 		HomePageModel{
-			Projects: data.Projects,
-			Blogs:    data.Blogs,
+			Projects: getHighlighted(data.Projects),
+			Blogs:    getHighlighted(data.Blogs),
 		},
 	)
 }
@@ -37,7 +37,7 @@ func projectsPage(w http.ResponseWriter, r *http.Request) {
 		w,
 		"pages/projects",
 		"partials/projectList",
-		data.Projects,
+		getVisible(data.Projects),
 	)
 }
 
@@ -65,7 +65,7 @@ func blogPage(w http.ResponseWriter, r *http.Request) {
 		w,
 		"pages/blog",
 		"partials/blogList",
-		data.Blogs,
+		getVisible(data.Blogs),
 	)
 }
 

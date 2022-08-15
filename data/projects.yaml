@@ -8,12 +8,14 @@
     - GO
     - Tailwind
   order: 1
+  highlighted: true
 - slug: save-my-bank
   name: Save My Bank
   description: Budgeting platform
   longDescriptionPath: projects/save-my-bank.md
   url: https://savemybank.lt
   imageUrl: https://savemybank.lt/img/categories.PNG
+  highlighted: true
   tags:
     - .NET
     - C#

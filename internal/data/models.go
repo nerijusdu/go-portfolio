@@ -2,8 +2,18 @@ package data
 
 import "html/template"
 
+type BaseItem struct {
+	Slug        string `yaml:"slug"`
+	Hidden      bool   `yaml:"hidden"`
+	Highlighted bool   `yaml:"highlighted"`
+	Order       int    `yaml:"order"`
+}
+
+func (b BaseItem) IsHidden() bool      { return b.Hidden }
+func (b BaseItem) IsHighlighted() bool { return b.Highlighted }
+
 type Project struct {
-	Slug                string `yaml:"slug"`
+	BaseItem            `yaml:",inline"`
 	Name                string `yaml:"name"`
 	Description         string `yaml:"description"`
 	LongDescription     string `yaml:"longDescription"`
@@ -13,11 +23,10 @@ type Project struct {
 	Url                 string   `yaml:"url"`
 	ImageUrl            string   `yaml:"imageUrl"`
 	RepositoryUrl       string   `yaml:"repositoryUrl"`
-	Order               int      `yaml:"order"`
 }
 
 type Blog struct {
-	Slug        string `yaml:"slug"`
+	BaseItem    `yaml:",inline"`
 	Title       string `yaml:"title"`
 	Description string `yaml:"description"`
 	Date        string `yaml:"date"`

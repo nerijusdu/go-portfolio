@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"net/http"
 	"text/template"
+
+	"github.com/elliotchance/pie/v2"
 )
 
 type NameOrData interface {
@@ -49,4 +51,25 @@ func somethingWentWrong(w http.ResponseWriter, err error) {
 	fmt.Println(err)
 	w.WriteHeader(http.StatusInternalServerError)
 	w.Write([]byte("Something went wrong"))
+}
+
+type Hideable interface {
+	IsHidden() bool
+}
+
+func getVisible[T Hideable](items []T) []T {
+	return pie.Filter(items, func(x T) bool {
+		return !x.IsHidden()
+	})
+}
+
+type Highlightable interface {
+	Hideable
+	IsHighlighted() bool
+}
+
+func getHighlighted[T Highlightable](items []T) []T {
+	return pie.Filter(items, func(x T) bool {
+		return x.IsHighlighted() && !x.IsHidden()
+	})
 }
