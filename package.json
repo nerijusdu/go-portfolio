@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch:css": "tailwindcss -i www/styles/main.css -o www/styles/main.min.css --watch",
-    "build:css": "tailwindcss -i www/styles/main.css -o www/styles/main.min.css"
+    "build:css": "tailwindcss -i www/styles/main.css -o www/styles/main.min.css --minify"
   },
   "author": "",
   "license": "ISC",
