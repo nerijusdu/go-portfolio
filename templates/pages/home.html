@@ -1,4 +1,4 @@
-{{template "header"}}
+{{template "header" .}}
 
 {{template "navigation"}}
 
@@ -38,20 +38,20 @@
   </div>
 </div>
 
-{{if ne (len .Projects) 0}}
+{{if ne (len .Data.Projects) 0}}
   <div class="text-3xl font-bold pt-4 text-center">
     Some of the things I've made
   </div>
 
-  {{template "projectList" .Projects}}
+  {{template "projectList" .Data.Projects}}
 {{end}}
 
-{{if ne (len .Blogs) 0}}
+{{if ne (len .Data.Blogs) 0}}
   <div class="text-3xl font-bold pt-4 text-center">
     Some of the things I wrote
   </div>
 
-  {{template "blogList" .Blogs}}
+  {{template "blogList" .Data.Blogs}}
 {{end}}
 
 {{template "footer"}}

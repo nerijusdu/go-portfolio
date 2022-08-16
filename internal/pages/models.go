@@ -8,6 +8,7 @@ type HomePageData struct {
 }
 
 type PageWithData[T any] struct {
+	Version     string
 	Title       string
 	Description string
 	Data        T

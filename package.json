@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch:css": "tailwindcss -i www/styles/main.css -o www/styles/main.min.css --watch",
-    "build:css": "tailwindcss -i www/styles/main.css -o www/styles/main.min.css --minify"
+    "watch:css": "tailwindcss -i www/styles/main.css -o www/styles/main-0.min.css --watch",
+    "build:css": "tailwindcss -i www/styles/main.css -o www/styles/main-$VERSION_HASH.min.css --minify"
   },
   "author": "",
   "license": "ISC",

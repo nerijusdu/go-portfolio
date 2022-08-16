@@ -12,7 +12,7 @@
       content="{{with .Description}}{{.}}{{else}}Hi! I'm Nerjus, a software engineer from Lithuania and this is where I show off my side projects and other cool stuff.{{end}}"
     >
     
-    <link rel="stylesheet" href="/static/styles/main.min.css" />
+    <link rel="stylesheet" href="/static/styles/main-{{with .Version}}{{.}}{{end}}.min.css" />
     <!-- <meta http-equiv="refresh" content="5" /> -->
 
   </head>

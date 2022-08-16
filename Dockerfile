@@ -1,5 +1,8 @@
 FROM golang:1.18
 
+ARG VERSION_HASH
+ENV VERSION_HASH=$VERSION_HASH
+
 WORKDIR /app
 
 COPY go.mod go.sum ./

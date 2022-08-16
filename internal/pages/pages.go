@@ -21,28 +21,30 @@ func CreatePagesRouter() chi.Router {
 }
 
 func homePage(w http.ResponseWriter, r *http.Request) {
-	renderPage(
+	renderPageWithData(
 		w,
+		PageWithData[HomePageData]{
+			Data: HomePageData{
+				Projects: getHighlighted(data.Projects),
+				Blogs:    getHighlighted(data.Blogs),
+			},
+		},
 		"pages/home",
 		"partials/projectList",
 		"partials/blogList",
-		HomePageData{
-			Projects: getHighlighted(data.Projects),
-			Blogs:    getHighlighted(data.Blogs),
-		},
 	)
 }
 
 func projectsPage(w http.ResponseWriter, r *http.Request) {
-	renderPage(
+	renderPageWithData(
 		w,
-		"pages/projects",
-		"partials/projectList",
 		PageWithData[[]data.Project]{
 			Title:       "My projects",
 			Description: "A list of all my personal projects",
 			Data:        getVisible(data.Projects),
 		},
+		"pages/projects",
+		"partials/projectList",
 	)
 }
 
@@ -61,23 +63,27 @@ func projectDetailsPage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	renderPage(w, "pages/projectDetails", PageWithData[*data.Project]{
-		Title:       p.Name,
-		Description: p.Description,
-		Data:        p,
-	})
+	renderPageWithData(
+		w,
+		PageWithData[*data.Project]{
+			Title:       p.Name,
+			Description: p.Description,
+			Data:        p,
+		},
+		"pages/projectDetails",
+	)
 }
 
 func blogPage(w http.ResponseWriter, r *http.Request) {
-	renderPage(
+	renderPageWithData(
 		w,
-		"pages/blog",
-		"partials/blogList",
 		PageWithData[[]data.Blog]{
 			Title:       "My blog",
 			Description: "I write stuff here",
 			Data:        getVisible(data.Blogs),
 		},
+		"pages/blog",
+		"partials/blogList",
 	)
 }
 
@@ -96,11 +102,15 @@ func blogDetailsPage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	renderPage(w, "pages/blogDetails", PageWithData[*data.Blog]{
-		Title:       b.Title,
-		Description: b.Description,
-		Data:        b,
-	})
+	renderPageWithData(
+		w,
+		PageWithData[*data.Blog]{
+			Title:       b.Title,
+			Description: b.Description,
+			Data:        b,
+		},
+		"pages/blogDetails",
+	)
 }
 
 func notFoundPage(w http.ResponseWriter, r *http.Request) {
