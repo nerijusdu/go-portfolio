@@ -16,7 +16,9 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Set version hash
-        run: export VERSION_HASH=$(echo "${{github.sha}}" | cut -c1-6)
+        run: |
+          export VERSION_HASH=$(echo "${{github.sha}}" | cut -c1-6)
+          echo "::set-env name=VERSION_HASH::$VERSION_HASH"
 
       - name: Run npm install
         run: npm ci
