@@ -8,12 +8,12 @@
 
 <div class="flex justify-start px-4 pt-4 gap-4">
   {{if (ne .Data.RepositoryUrl "")}}
-    <a href="{{.RepositoryUrl}}">
+    <a href="{{.Data.RepositoryUrl}}">
       <img src="/static/icons/github.svg" class="w-7" alt="Github"/>
     </a>
   {{end}}
   {{if (ne .Data.Url "")}}
-    <a href="{{.Url}}">
+    <a href="{{.Data.Url}}">
       <img src="/static/icons/external-link.svg" class="w-7" alt="Link to project"/>
     </a>
   {{end}}
