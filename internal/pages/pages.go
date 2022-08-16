@@ -10,6 +10,7 @@ import (
 func CreatePagesRouter() chi.Router {
 	router := chi.NewRouter()
 
+	router.Get("/not-found", notFoundPage)
 	router.Get("/", homePage)
 	router.Get("/projects", projectsPage)
 	router.Get("/projects/{slug}", projectDetailsPage)
@@ -52,8 +53,7 @@ func projectDetailsPage(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if p == nil {
-		w.WriteHeader(404)
-		w.Write([]byte("project not found"))
+		notFound(w, "Project not found")
 		return
 	}
 
@@ -80,10 +80,14 @@ func blogDetailsPage(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if b == nil {
-		w.WriteHeader(404)
-		w.Write([]byte("blog not found"))
+		notFound(w, "Blog article not found")
 		return
 	}
 
 	renderPage(w, "pages/blogDetails", b)
+}
+
+func notFoundPage(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusNotFound)
+	renderPage(w, "pages/404")
 }

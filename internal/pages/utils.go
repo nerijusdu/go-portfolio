@@ -53,6 +53,12 @@ func somethingWentWrong(w http.ResponseWriter, err error) {
 	w.Write([]byte("Something went wrong"))
 }
 
+func notFound(w http.ResponseWriter, err string) {
+	fmt.Println(err)
+	w.Header().Add("Location", "/not-found")
+	w.WriteHeader(http.StatusPermanentRedirect)
+}
+
 type Hideable interface {
 	IsHidden() bool
 }
