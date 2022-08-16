@@ -6,4 +6,17 @@
   {{.LongDescriptionHTML}}
 </div>
 
+<div class="flex justify-start px-4 pt-4 gap-4">
+  {{if (ne .RepositoryUrl "")}}
+    <a href="{{.RepositoryUrl}}">
+      <img src="/static/icons/github.svg" class="w-7" alt="Github"/>
+    </a>
+  {{end}}
+  {{if (ne .Url "")}}
+    <a href="{{.Url}}">
+      <img src="/static/icons/external-link.svg" class="w-7" alt="Link to project"/>
+    </a>
+  {{end}}
+</div>
+
 {{template "footer"}}

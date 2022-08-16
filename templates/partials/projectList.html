@@ -2,13 +2,28 @@
 
 <div class="px-4 my-4 grid grid-cols-1 xl:grid-cols-2 gap-4">
   {{range .}}
-    <div class="border-slate-700 border pl-4 flex gap-4 rounded-md grow">
-      <div class="flex flex-col justify-center grow py-5">
-        <a class="pb-4 font-semibold text-xl hover:underline cursor-pointer" href="/projects/{{.Slug}}">
-          {{.Name}}
-        </a>
-        <div class="border-slate-700 border-b pb-2">{{.Description}}</div>
-        <div class="flex py-2 gap-2">
+    <div class="border-slate-700 border pl-4 flex rounded-md grow">
+      <div class="flex flex-col justify-start grow py-3 mr-4">
+        <div class="pb-4 flex justify-between">
+          <a class="font-semibold text-xl hover:underline cursor-pointer" href="/projects/{{.Slug}}">
+            {{.Name}}
+          </a>
+
+          <div class="flex gap-3">
+            {{if (ne .RepositoryUrl "")}}
+              <a href="{{.RepositoryUrl}}">
+                <img src="/static/icons/github.svg" class="w-7" alt="Github"/>
+              </a>
+            {{end}}
+            {{if (ne .Url "")}}
+              <a href="{{.Url}}">
+                <img src="/static/icons/external-link.svg" class="w-7" alt="Link to project"/>
+              </a>
+            {{end}}
+          </div>
+        </div>
+        <div class="border-slate-700 border-b pb-2 grow">{{.Description}}</div>
+        <div class="flex pt-2 gap-2">
           {{range .Tags}}
             <div class="bg-emerald-700/30 text-green-300 px-3 py-1 rounded-md">{{.}}</div>
           {{end}}
