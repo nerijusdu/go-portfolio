@@ -26,7 +26,7 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 		"pages/home",
 		"partials/projectList",
 		"partials/blogList",
-		HomePageModel{
+		HomePageData{
 			Projects: getHighlighted(data.Projects),
 			Blogs:    getHighlighted(data.Blogs),
 		},
@@ -38,7 +38,11 @@ func projectsPage(w http.ResponseWriter, r *http.Request) {
 		w,
 		"pages/projects",
 		"partials/projectList",
-		getVisible(data.Projects),
+		PageWithData[[]data.Project]{
+			Title:       "My projects",
+			Description: "A list of all my personal projects",
+			Data:        getVisible(data.Projects),
+		},
 	)
 }
 
@@ -57,7 +61,11 @@ func projectDetailsPage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	renderPage(w, "pages/projectDetails", p)
+	renderPage(w, "pages/projectDetails", PageWithData[*data.Project]{
+		Title:       p.Name,
+		Description: p.Description,
+		Data:        p,
+	})
 }
 
 func blogPage(w http.ResponseWriter, r *http.Request) {
@@ -65,7 +73,11 @@ func blogPage(w http.ResponseWriter, r *http.Request) {
 		w,
 		"pages/blog",
 		"partials/blogList",
-		getVisible(data.Blogs),
+		PageWithData[[]data.Blog]{
+			Title:       "My blog",
+			Description: "I write stuff here",
+			Data:        getVisible(data.Blogs),
+		},
 	)
 }
 
@@ -84,7 +96,11 @@ func blogDetailsPage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	renderPage(w, "pages/blogDetails", b)
+	renderPage(w, "pages/blogDetails", PageWithData[*data.Blog]{
+		Title:       b.Title,
+		Description: b.Description,
+		Data:        b,
+	})
 }
 
 func notFoundPage(w http.ResponseWriter, r *http.Request) {

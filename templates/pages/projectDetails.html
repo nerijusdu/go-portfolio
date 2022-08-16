@@ -1,18 +1,18 @@
-{{template "header"}}
+{{template "header" .}}
 
 {{template "navigation"}}
 
 <div class="markdown px-4">
-  {{.LongDescriptionHTML}}
+  {{.Data.LongDescriptionHTML}}
 </div>
 
 <div class="flex justify-start px-4 pt-4 gap-4">
-  {{if (ne .RepositoryUrl "")}}
+  {{if (ne .Data.RepositoryUrl "")}}
     <a href="{{.RepositoryUrl}}">
       <img src="/static/icons/github.svg" class="w-7" alt="Github"/>
     </a>
   {{end}}
-  {{if (ne .Url "")}}
+  {{if (ne .Data.Url "")}}
     <a href="{{.Url}}">
       <img src="/static/icons/external-link.svg" class="w-7" alt="Link to project"/>
     </a>

@@ -1,9 +1,9 @@
-{{template "header"}}
+{{template "header" .}}
 
 {{template "navigation"}}
 
 <div class="markdown px-4">
-  {{.HTML}}
+  {{.Data.HTML}}
 </div>
 
 {{template "footer"}}
