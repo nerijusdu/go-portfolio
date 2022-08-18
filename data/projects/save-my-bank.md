@@ -3,6 +3,8 @@
 This is my most finished project, that I'm really proud of and learned a lot while building it.
 This is a budgeting platform where you can easily track your spending, create a budget and learn to save money.
 
+![Home page](/data/images/save-my-bank-home.png)
+
 ## Tech stack
 
 Backend is built using .NET 5. It uses Entity Framework, PostgreSQL database, IdentityServer and all the other good stuff that I wanted to learn.
@@ -44,8 +46,29 @@ Docker image was built by Github Actions and pushed to my private registry. Afte
 
 ### Polishing
 
-TODO: additional features, debt plan, investment, tutorial, support requests, landing page, blog.
+This is one of my most polished projects. It's deployed to production environment, it has a landing page, step-by-step tutorials on how to use different features.
+
+![Tutorial preview](/data/images/save-my-bank-tutorial.png)
+
+Save My Bank also has quite a lot of self hosted supporting services:
+
+- Analytics - [Plausible](https://plausible.io/)
+- Monitoring - [Graphana](https://grafana.com/)
+- Blog - [Ghost](https://ghost.org) (didn't write anything in it  though)
 
 ### Mobile
 
+I tried making a mobile app for this project 3 times.
+
+
+First time was with React Native, because I thought that having a React frontend will make everything really easy and I could reuse most of the logic. Boy was I wrong! Started by creating a shared logic package that could be reused between web and mobile, it took a week or two until I got authentication and one component working, I was using a lot of packages that don't work well with React Native. And then React Native turned out to be a really bad dev experience with random crashes, hard to install packages, hot reloading not working and hard to write styles. So I dropped it after implementing a few pages.
+
+
+Second time was with .NET MAUI and Blazor web view. It was a little easier because it's just a website, but I tried to make it feel like a mobile app so it was quit hard to implement smooth transitions and etc. Also .NET MAUI was still in preview when I started this, so dev experience was not that great. So I decided to wait for .NET MAUI to get out of preview and never came back to this app.
+
+
+And the third time was with Flutter. This was by far the best experience while making an app. Out of the box widgets cover most of what I needed and everything just worked. It took me about 6 hours to make the same progress as I did with React Native or Blazor in a week. However, when I started making this app with flutter I had no intention to finnish it because I had already lost any motivation to continue this project. 
+
 ### The endgame
+
+I worked on this project for about a year until I lost all motivation to continue working on it. It was getting boring to implement new features when no one was actually using them, so I stopped. In summary, I learned a shit ton of new things while working on it and it was definately worth it, 10/10 would recommend.
