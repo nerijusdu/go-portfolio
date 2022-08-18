@@ -3,7 +3,6 @@ package pages
 import (
 	"net/http"
 	"os"
-	"text/template"
 )
 
 type NameOrData interface {
@@ -11,6 +10,7 @@ type NameOrData interface {
 }
 
 var version = os.Getenv("VERSION_HASH")
+var templates = newTemplateCache()
 
 func renderPageWithData[T any](w http.ResponseWriter, data PageWithData[T], names ...string) error {
 	data.Version = "0"
@@ -28,8 +28,7 @@ func renderPageWithData[T any](w http.ResponseWriter, data PageWithData[T], name
 		"templates/partials/navigation.html",
 	)
 
-	// TODO: cache parsed templates?
-	tmpl, err := template.ParseFiles(names...)
+	tmpl, err := templates.get(names)
 
 	if err != nil {
 		somethingWentWrong(w, err)

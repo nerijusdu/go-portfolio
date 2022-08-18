@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"net/http"
 	"os"
@@ -13,6 +14,8 @@ import (
 )
 
 func main() {
+	flag.Parse()
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "3001"
@@ -28,5 +31,8 @@ func main() {
 	static.ServeStaticFiles("/static", r)
 
 	fmt.Println("Starting server on http://localhost:" + port)
-	http.ListenAndServe(":"+port, r)
+	err := http.ListenAndServe(":"+port, r)
+	if err != nil {
+		panic(err)
+	}
 }
