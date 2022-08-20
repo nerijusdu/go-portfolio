@@ -53,6 +53,10 @@ func readSkills() ([]Skill, error) {
 	return readYaml[[]Skill]("skills.yaml")
 }
 
+func readExperiences() ([]Experience, error) {
+	return readYaml[[]Experience]("experience.yaml")
+}
+
 func readYaml[T any](path string) (T, error) {
 	var result T
 	data, err := ioutil.ReadFile("data/" + path)

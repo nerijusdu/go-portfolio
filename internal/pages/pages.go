@@ -25,9 +25,10 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 		w,
 		PageWithData[HomePageData]{
 			Data: HomePageData{
-				Projects: getHighlighted(data.Projects),
-				Blogs:    getHighlighted(data.Blogs),
-				Skills:   data.Skills,
+				Projects:    getHighlighted(data.Projects),
+				Blogs:       getHighlighted(data.Blogs),
+				Skills:      data.Skills,
+				Experiences: data.Experiences,
 			},
 		},
 		"pages/home",

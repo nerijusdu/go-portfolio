@@ -39,3 +39,13 @@ type Skill struct {
 	Name  string `yaml:"name"`
 	Level int    `yaml:"level"`
 }
+
+type Experience struct {
+	Name        string   `yaml:"name"`
+	Stack       []string `yaml:"stack"`
+	Description string   `yaml:"description"`
+	Current     bool     `yaml:"current"`
+	First       bool     `yaml:"first"`
+	Start       string   `yaml:"start"`
+	End         string   `yaml:"end"`
+}

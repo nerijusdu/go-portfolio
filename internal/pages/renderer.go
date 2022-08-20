@@ -1,8 +1,10 @@
 package pages
 
 import (
+	"html/template"
 	"net/http"
 	"os"
+	"strings"
 )
 
 type NameOrData interface {
@@ -45,4 +47,17 @@ func renderPageWithData[T any](w http.ResponseWriter, data PageWithData[T], name
 
 func renderPage(w http.ResponseWriter, names ...string) error {
 	return renderPageWithData(w, PageWithData[any]{}, names...)
+}
+
+var tempalteFuncs = template.FuncMap{
+	"repeat": func(n int) []int {
+		var res []int
+		for i := 0; i < n; i++ {
+			res = append(res, i+1)
+		}
+		return res
+	},
+	"paragraphs": func(s string) []string {
+		return strings.Split(s, "\n")
+	},
 }

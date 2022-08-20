@@ -1,0 +1,32 @@
+- name: Billo.app
+  stack:
+    - TypeScript/JavaScript
+    - Node.js
+    - React
+    - SQL
+    - Go
+  description: |
+    Building a marketplace for eCom videos, moving from monolithic to microservice architecture, fighting performance issues.
+  start: Feb 2022 - Now
+  current: true
+- name: Devbridge
+  stack:
+    - .NET/C#
+    - Angular
+    - React
+    - SQL
+  description: |
+    - Work on upgrading legacy system to new architecture and infrastructure using Azure Cloud.
+    - Add Apple Pay integration to ASP.NET Web system using Cybersoure platform.
+    - Upgrade React.Js components to fit accessibility standards.
+    - Work on micro-service based system using .NET 5 and Azure Functions.
+    - Create Word Add-In using Office.Js and Angular
+  start: Feb 2018
+  end: Feb 2022
+- name: Kaunas University of Technology
+  stack:
+    - C#
+  description: Got a bachelor's degree in Software Systems
+  start: Sept 2016
+  end: Jun 2020
+  first: true
