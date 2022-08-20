@@ -6,4 +6,5 @@ Check it out at [nerijusdulke.lt](https://nerijusdulke.lt).
 - [X] CSS file with version hash
 - [X] Cache templates only in prod
 - [ ] Work experience
-- [ ] Skills
+- [X] Skills
+- [ ] Github activity

@@ -3,6 +3,7 @@ package data
 var (
 	Projects []Project
 	Blogs    []Blog
+	Skills   []Skill
 )
 
 func init() {
@@ -16,6 +17,12 @@ func init() {
 		panic(err)
 	}
 
+	s, err := readSkills()
+	if err != nil {
+		panic(err)
+	}
+
 	Projects = p
 	Blogs = b
+	Skills = s
 }

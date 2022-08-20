@@ -49,6 +49,10 @@ func readBlogs() ([]Blog, error) {
 	return blogs, nil
 }
 
+func readSkills() ([]Skill, error) {
+	return readYaml[[]Skill]("skills.yaml")
+}
+
 func readYaml[T any](path string) (T, error) {
 	var result T
 	data, err := ioutil.ReadFile("data/" + path)

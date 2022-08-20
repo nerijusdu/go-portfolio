@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"html/template"
+	"path"
 	"strings"
 )
 
@@ -26,7 +27,18 @@ func (c *templateCache) get(names []string) (*template.Template, error) {
 		return tmpl, nil
 	}
 
-	tmpl, err := template.ParseFiles(names...)
+	tmpl, err := template.
+		New(path.Base(names[0])).
+		Funcs(template.FuncMap{
+			"repeat": func(n int) []int {
+				var res []int
+				for i := 0; i < n; i++ {
+					res = append(res, i+1)
+				}
+				return res
+			},
+		}).
+		ParseFiles(names...)
 	if err != nil {
 		return nil, err
 	}

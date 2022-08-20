@@ -34,3 +34,8 @@ type Blog struct {
 	Path        string `yaml:"path"`
 	HTML        template.HTML
 }
+
+type Skill struct {
+	Name  string `yaml:"name"`
+	Level int    `yaml:"level"`
+}
