@@ -57,7 +57,7 @@
 - slug: friender
   name: Friender
   description: Minimal social network I made for my friends university assignment. Built with Remix.run and ChakraUI.
-  repositoryURL: https://github.com/nerijusdu/friender
+  repositoryUrl: https://github.com/nerijusdu/friender
   tags:
     - TypeScript
     - Remix

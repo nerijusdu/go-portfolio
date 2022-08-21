@@ -1,4 +1,4 @@
-name: Build docker image and publish to registry
+name: Release
 
 on:
   push:
@@ -40,15 +40,7 @@ jobs:
       - name: Push image to SaveMyBank Container Registry
         run: |
           IMAGE_ID=registry.savemybank.lt/$IMAGE_NAME
-
-          # Strip git ref prefix from version
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-
-          # Strip "v" prefix from tag name
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-
-          # Use Docker `latest` tag convention
-          [ "$VERSION" == "main" ] && VERSION=latest
+          VERSION=latest
 
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
@@ -56,3 +48,14 @@ jobs:
 
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
+      - name: Use latest docker image
+        uses: appleboy/ssh-action@master
+        with:
+          host: savemybank.lt
+          username: ${{ secrets.SSH_USER_NAME }}
+          password: ${{ secrets.SSH_USER_PASS }}
+          script: |
+            cd /home/web/portfolio
+            export DOCKER_TAG=latest
+            docker-compose pull portfolio
+            docker-compose up -d
