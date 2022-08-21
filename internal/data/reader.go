@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"io/ioutil"
+	"sort"
 
 	"github.com/gomarkdown/markdown"
 	"gopkg.in/yaml.v2"
@@ -25,6 +26,10 @@ func readProjects() ([]Project, error) {
 			projects[i].LongDescriptionHTML = html
 		}
 	}
+
+	sort.SliceStable(projects, func(i, j int) bool {
+		return projects[i].Priority > projects[j].Priority
+	})
 
 	return projects, nil
 }

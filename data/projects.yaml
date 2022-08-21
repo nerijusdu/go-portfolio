@@ -4,20 +4,66 @@
   longDescriptionPath: projects/portfolio.md
   url: https://nerijusdulke.lt
   repositoryUrl: https://github.com/nerijusdu/go-portfolio
+  imageUrl: /data/images/portfolio-home.png
   tags:
     - Go
     - Tailwind
-  order: 1
   highlighted: true
 - slug: save-my-bank
+  priority: 100
   name: Save My Bank
   description: Budgeting platform
   longDescriptionPath: projects/save-my-bank.md
   url: https://savemybank.lt
-  imageUrl: https://savemybank.lt/img/categories.PNG
+  imageUrl: /data/images/save-my-bank.png
   highlighted: true
   tags:
     - .NET
     - C#
     - TypeScript
     - React
+- slug: express-swagger-generator
+  name: Express Swagger generator
+  description: OpenAPI docks generator for typescript + express API
+  longDescriptionPath: projects/express-swagger-generator.md
+  repositoryUrl: https://github.com/nerijusdu/swagger-generator
+  tags: 
+    - TypeScript
+- slug: bingo-bot
+  name: Slack Bingo Bot
+  description: Play bingo with your fuck-ups
+  longDescriptionPath: projects/bingo-bot.md
+  imageUrl: /data/images/bingo-bot.png
+  repositoryUrl: https://github.com/nerijusdu/bingo-bot
+  highlighted: true
+  tags:
+    - Go
+- slug: chip-8
+  name: Chip 8 emulator
+  description: Chip 8 emulator written while learning Go.
+  repositoryUrl: https://github.com/nerijusdu/chip-8
+  tags:
+    - Go
+- slug: map-it
+  name: Map It
+  description: Roadmap/Project management tool
+  longDescriptionPath: /projects/map-it.md
+  repositoryUrl: https://github.com/nerijusdu/map-it
+  imageUrl: /data/images/map-it.png
+  tags:
+    - TypeScript
+    - Vue.js
+    - Node.js
+- slug: friender
+  name: Friender
+  description: Minimal social network I made for my friends university assignment. Built with Remix.run and ChakraUI.
+  repositoryURL: https://github.com/nerijusdu/friender
+  tags:
+    - TypeScript
+    - Remix
+    - React
+- slug: github
+  name: That's not all!
+  description: These are not all the projects I've made. Check out my github I have over 30 repositories!
+  repositoryUrl: https://github.com/nerijusdu?tab=repositories
+  url: https://github.com/nerijusdu?tab=repositories

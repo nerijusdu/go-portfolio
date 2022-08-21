@@ -6,7 +6,7 @@ type BaseItem struct {
 	Slug        string `yaml:"slug"`
 	Hidden      bool   `yaml:"hidden"`
 	Highlighted bool   `yaml:"highlighted"`
-	Order       int    `yaml:"order"`
+	Priority    int    `yaml:"priority"`
 }
 
 func (b BaseItem) IsHidden() bool      { return b.Hidden }

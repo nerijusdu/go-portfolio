@@ -5,9 +5,13 @@
     <div class="border-slate-700 border pl-4 flex rounded-md grow">
       <div class="flex flex-col justify-start grow py-3 mr-4">
         <div class="pb-4 flex justify-between">
-          <a class="font-semibold text-xl hover:underline cursor-pointer" href="/projects/{{.Slug}}">
-            {{.Name}}
-          </a>
+          {{if ne .LongDescriptionHTML ""}}
+            <a class="font-semibold text-xl hover:underline cursor-pointer" href="/projects/{{.Slug}}">
+              {{.Name}}
+            </a>
+          {{else}}
+            <div class="text-xl">{{.Name}}</div>
+          {{end}}
 
           <div class="flex gap-3">
             {{if (ne .RepositoryUrl "")}}
@@ -22,7 +26,7 @@
             {{end}}
           </div>
         </div>
-        <div class="border-slate-700 border-b pb-2 grow">{{.Description}}</div>
+        <div class="border-slate-700 {{if (ne (len .Tags) 0)}}border-b{{end}} pb-2 grow">{{.Description}}</div>
         <div class="flex pt-2 gap-2">
           {{range .Tags}}
             <div class="bg-emerald-700/30 text-green-300 px-3 py-1 rounded-md">{{.}}</div>
@@ -30,7 +34,7 @@
         </div>
       </div>
       {{if (ne .ImageUrl "")}}
-        <img class="max-w-xs hidden sm:block rounded-r-md max-h-48" src="{{.ImageUrl}}" alt="{{.Name}} preview" />
+        <img class="max-w-xxs hidden sm:block rounded-r-md max-h-48" src="{{.ImageUrl}}" alt="{{.Name}} preview" />
       {{end}}
     </div>
   {{end}}
