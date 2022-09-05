@@ -22,6 +22,16 @@
     - C#
     - TypeScript
     - React
+- slug: release-button
+  name: Release button
+  description: A physical button that releases services to production
+  longDescriptionPath: projects/release-button.md
+  imageUrl: /data/images/release-button.jpg
+  repositoryUrl: https://github.com/nerijusdu/release-button
+  tags:
+    - Go
+    - Python
+    - RaspberryPi
 - slug: express-swagger-generator
   name: Express Swagger generator
   description: OpenAPI docks generator for typescript + express API
