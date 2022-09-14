@@ -3,6 +3,7 @@
   title: I don't really write a blog
   description: I just wanted to implement this feature because it seemed fun
   path: blogs/i-dont-write-blog.md
+  hidden: true
 - slug: overengineer-a-button
   date: 2022-09-05
   title: How to over-engineer a button
