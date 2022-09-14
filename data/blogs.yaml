@@ -8,3 +8,8 @@
   title: How to over-engineer a button
   description: Making a physical button for Argo CD releases 
   path: projects/release-button.md 
+- slug: building-production-grade-side-project
+  date: 2022-09-07
+  title: Building a production grade side project
+  description: Write-up on my journey building Save My Bank
+  path: projects/save-my-bank.md

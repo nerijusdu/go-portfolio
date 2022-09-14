@@ -14,7 +14,8 @@ func ServeStaticFiles(route string, r chi.Router) {
 	filesDir := http.Dir(filepath.Join(workDir, "www"))
 	serveDataAssets(route, r)
 	fileServer(r, route, filesDir)
-	serveFavicon(route, r)
+	serveFileInRoot(route, "/favicon.ico", r)
+	serveFileInRoot(route, "/robots.txt", r)
 }
 
 func fileServer(r chi.Router, path string, root http.FileSystem) {
@@ -36,9 +37,9 @@ func fileServer(r chi.Router, path string, root http.FileSystem) {
 	})
 }
 
-func serveFavicon(staticRoute string, r chi.Router) {
-	r.Get("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Location", staticRoute+"/favicon.ico")
+func serveFileInRoot(staticRoute, fileName string, r chi.Router) {
+	r.Get(fileName, func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Location", staticRoute+fileName)
 		w.WriteHeader(http.StatusPermanentRedirect)
 	})
 }
