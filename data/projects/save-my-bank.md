@@ -3,7 +3,9 @@
 This is my most finished project, that I'm really proud of and learned a lot while building it.
 This is a budgeting platform where you can easily track your spending, create a budget and learn to save money.
 
+<div class="img-lg">
 ![Home page](/data/images/save-my-bank-home.png)
+</div><!---->
 
 ## Tech stack
 
@@ -18,7 +20,9 @@ Frontend is build using React, TypeScript, ChakraUI, ReactQuery and React Hook F
 
 This started as a small project when my brother suggest an idea to creat a budgeting platform that would be suited for Lithuanian market, including syncing with your bank to make tracking your expenses effortless. However, I soon found out that connecting to bank APIs in Lithuania requires having a bussines, some certifications and other legal trouble that I was not prepared to go through. So for now I postponed this feature (to never) and settled with a CSV import of transactions that you can export from your bank. This can be configured for different type of delimiters which is probably confusing for the user but two biggest banks in Lithuania uses different default delimiters for CSV exports 🙃.
 
+<div class="img-lg">
 ![Import modal screenshot](/data/images/save-my-bank-import.png)
+</div><!---->
 
 After that came all the other basic features of a budgeting platform:
 
@@ -48,7 +52,9 @@ Docker image was built by Github Actions and pushed to my private registry. Afte
 
 This is one of my most polished projects. It's deployed to production environment, it has a landing page, step-by-step tutorials on how to use different features.
 
+<div class="img-lg">
 ![Tutorial preview](/data/images/save-my-bank-tutorial.png)
+</div><!---->
 
 Save My Bank also has quite a lot of self hosted supporting services:
 

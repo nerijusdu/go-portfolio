@@ -7,6 +7,7 @@ import (
 	"sort"
 
 	"github.com/gomarkdown/markdown"
+	"github.com/gomarkdown/markdown/html"
 	"gopkg.in/yaml.v2"
 )
 
@@ -84,7 +85,11 @@ func mdPathToHtml(path string) (template.HTML, error) {
 	}
 
 	content = markdown.NormalizeNewlines(content)
-	output := markdown.ToHTML(content, nil, nil)
+	output := markdown.ToHTML(
+		content,
+		nil,
+		html.NewRenderer(html.RendererOptions{Flags: html.LazyLoadImages}),
+	)
 
 	return template.HTML(output), nil
 }

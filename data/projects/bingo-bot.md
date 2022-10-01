@@ -2,7 +2,9 @@
 
 This is a slack bot that we use at my workplace to track failed releases.
 
+<div class="img-md">
 ![Bingo bot in action](/data/images/bingo-bot.png)
+</div><!---->
 
 ## Tech stack
 
