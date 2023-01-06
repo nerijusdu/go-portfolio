@@ -2,6 +2,7 @@
   stack:
     - TypeScript/JavaScript
     - Node.js
+    - Express.js
     - React
     - SQL
     - Go

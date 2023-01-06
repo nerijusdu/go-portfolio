@@ -1,9 +1,9 @@
 - name: TypeScript
   level: 10
 - name: .NET/C#
-  level: 10
+  level: 9
 - name: Go
-  level: 5
+  level: 6
 - name: SQL
   level: 8
 - name: React
