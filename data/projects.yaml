@@ -32,6 +32,15 @@
     - Go
     - Python
     - RaspberryPi
+- slug: nezinau-ka-valgyt
+  name: Nežinau ką valgyt
+  description: A meal planner for the week (WIP)
+  url: https://nezinaukavalgyt.lt
+  tags:
+    - TypeScript
+    - Next.js
+    - React
+    - Prisma
 - slug: express-swagger-generator
   name: Express Swagger generator
   description: OpenAPI docks generator for typescript + express API

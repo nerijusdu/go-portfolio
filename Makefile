@@ -1,5 +1,5 @@
 run:
-	npm run build:css
+	VERSION_HASH=0 npm run build:css
 	go run .
 
 dev:
