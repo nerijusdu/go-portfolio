@@ -33,13 +33,13 @@ jobs:
 
       - uses: docker/login-action@v1
         with:
-          registry: registry.savemybank.lt
-          username: save-my-bank
+          registry: registry.nerijusdulke.lt
+          username: nerijus 
           password: ${{ secrets.DOCKER_PASS }}
 
-      - name: Push image to SaveMyBank Container Registry
+      - name: Push image to container registry
         run: |
-          IMAGE_ID=registry.savemybank.lt/$IMAGE_NAME
+          IMAGE_ID=registry.nerijusdulke.lt/$IMAGE_NAME
           VERSION=latest
 
           echo IMAGE_ID=$IMAGE_ID
@@ -51,7 +51,7 @@ jobs:
       - name: Use latest docker image
         uses: appleboy/ssh-action@master
         with:
-          host: savemybank.lt
+          host: nerijusdulke.lt
           username: ${{ secrets.SSH_USER_NAME }}
           password: ${{ secrets.SSH_USER_PASS }}
           script: |
