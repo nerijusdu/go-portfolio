@@ -7,5 +7,6 @@ Check it out at [nerijusdulke.lt](https://nerijusdulke.lt).
 - [X] Cache templates only in prod
 - [X] Work experience
 - [X] Skills
-- [ ] Search projects by tags
+- [X] Analytics
 - [ ] Github activity
+- [ ] Reading list?
