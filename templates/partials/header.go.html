@@ -1,0 +1,37 @@
+{{define "description"}}
+  {{with .Description}}{{.}}{{else}}Hi! I'm Nerjus, a software engineer from Lithuania and this is where I show off my side projects and other cool stuff.{{end}}
+{{end}}
+
+{{define "title"}}
+  {{with .Title}}{{.}}{{else}}Nerijus Dulkė{{end}}
+{{end}}
+
+{{define "header"}}
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <title>{{template "title" .}}</title>
+    <meta name="title" content="{{template "title" .}}">
+    <meta property="og:title" content="{{template "title" .}}">
+    <meta property="twitter:title" content="{{template "title" .}}">
+
+    <meta name="description" content="{{template "description" .}}">
+    <meta property="og:description" content="{{template "description" .}}">
+    <meta property="twitter:description" content="{{template "description" .}}">
+    
+    <meta property="og:image" content="{{.ImageUrl}}">
+    <meta property="twitter:image" content="{{.ImageUrl}}">
+
+    <meta property="og:type" content="website">
+    <meta property="twitter:card" content="{{ with .ImageUrl }}summary_large_image{{else}}summary{{end}}">
+    <meta name="viewport" content="width=device-width">
+    {{/* <meta http-equiv="refresh" content="5" /> */}}
+
+    <link rel="stylesheet" href="/static/styles/main-{{with .Version}}{{.}}{{end}}.min.css" />
+
+    <script async defer data-domain="nerijusdulke.lt" src="https://analytics.nerijusdulke.lt/js/plausible.js"></script>
+  </head>
+
+  <body class="bg-background-1 text-white font-roboto lg:container">
+{{end}}

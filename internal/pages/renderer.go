@@ -21,13 +21,13 @@ func renderPageWithData[T any](w http.ResponseWriter, data PageWithData[T], name
 	}
 
 	for i := 0; i < len(names); i++ {
-		names[i] = "templates/" + names[i] + ".html"
+		names[i] = "templates/" + names[i] + ".go.html"
 	}
 
 	names = append(names,
-		"templates/partials/header.html",
-		"templates/partials/footer.html",
-		"templates/partials/navigation.html",
+		"templates/partials/header.go.html",
+		"templates/partials/footer.go.html",
+		"templates/partials/navigation.go.html",
 	)
 
 	tmpl, err := templates.get(names)

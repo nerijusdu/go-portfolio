@@ -70,6 +70,7 @@ func projectDetailsPage(w http.ResponseWriter, r *http.Request) {
 		PageWithData[*data.Project]{
 			Title:       p.Name,
 			Description: p.Description,
+			ImageUrl:    p.ImageUrl,
 			Data:        p,
 		},
 		"pages/projectDetails",
@@ -109,6 +110,7 @@ func blogDetailsPage(w http.ResponseWriter, r *http.Request) {
 		PageWithData[*data.Blog]{
 			Title:       b.Title,
 			Description: b.Description,
+			ImageUrl:    b.ImageUrl,
 			Data:        b,
 		},
 		"pages/blogDetails",

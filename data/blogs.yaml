@@ -9,6 +9,7 @@
   title: How to over-engineer a button
   description: Making a physical button for Argo CD releases 
   path: projects/release-button.md 
+  imageUrl: /data/images/release-button.jpg
 - slug: building-production-grade-side-project
   date: 2022-09-07
   title: Building a production grade side project

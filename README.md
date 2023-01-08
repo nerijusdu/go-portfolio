@@ -8,5 +8,6 @@ Check it out at [nerijusdulke.lt](https://nerijusdulke.lt).
 - [X] Work experience
 - [X] Skills
 - [X] Analytics
+- [ ] Default meta image for all pages
 - [ ] Github activity
 - [ ] Reading list?
