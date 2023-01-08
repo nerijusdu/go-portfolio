@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="border-slate-700 {{if (ne (len .Tags) 0)}}border-b{{end}} pb-2 grow">{{.Description}}</div>
-        <div class="flex pt-2 gap-2">
+        <div class="flex pt-2 gap-2 flex-wrap">
           {{range .Tags}}
             <div class="bg-emerald-700/30 text-green-300 px-3 py-1 rounded-md">{{.}}</div>
           {{end}}
