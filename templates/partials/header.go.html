@@ -2,9 +2,9 @@
   {{with .Description}}{{.}}{{else}}Hi! I'm Nerjus, a software engineer from Lithuania and this is where I show off my side projects and other cool stuff.{{end}}
 {{end}}
 
-{{define "title"}}{{with .Title}}{{.}}{{else}}Nerijus Dulkė{{end}}{{end}}
-
-{{define "image"}}https://nerijusdulke.lt{{with .ImageUrl}}{{.}}{{else}}/data/images/default-meta.png{{end}}{{end}}
+{{define "title"}}
+  {{with .Title}}{{.}}{{else}}Nerijus Dulkė{{end}}
+{{end}}
 
 {{define "header"}}
 <!doctype html>
@@ -20,12 +20,14 @@
     <meta property="og:description" content="{{template "description" .}}">
     <meta property="twitter:description" content="{{template "description" .}}">
     
-    <meta property="og:image" content="{{template "image" .}}">
-    <meta property="og:image:secure_url" content="{{template "image" .}}">
-    <meta property="twitter:image" content="{{template "image" .}}">
+    {{ with .ImageUrl }}
+      <meta property="og:image" content="https://nerijusdulke.lt{{.}}">
+      <meta property="og:image:secure_url" content="https://nerijusdulke.lt{{.}}">
+      <meta property="twitter:image" content="https://nerijusdulke.lt{{.}}">
+    {{end}}
 
     <meta property="og:type" content="website">
-    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:card" content="{{ with .ImageUrl }}summary_large_image{{else}}summary{{end}}">
     <meta name="viewport" content="width=device-width">
     {{/* <meta http-equiv="refresh" content="5" /> */}}
 
