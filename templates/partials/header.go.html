@@ -2,13 +2,9 @@
   {{with .Description}}{{.}}{{else}}Hi! I'm Nerjus, a software engineer from Lithuania and this is where I show off my side projects and other cool stuff.{{end}}
 {{end}}
 
-{{define "title"}}
-  {{with .Title}}{{.}}{{else}}Nerijus Dulkė{{end}}
-{{end}}
+{{define "title"}}{{with .Title}}{{.}}{{else}}Nerijus Dulkė{{end}}{{end}}
 
-{{define "image"}}
-  https://nerijusdulke.lt{{with .ImageUrl}}{{.}}{{else}}/data/images/default-meta.jpg{{end}}
-{{end}}
+{{define "image"}}https://nerijusdulke.lt{{with .ImageUrl}}{{.}}{{else}}/data/images/default-meta.jpg{{end}}{{end}}
 
 {{define "header"}}
 <!doctype html>
