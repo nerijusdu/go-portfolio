@@ -6,6 +6,10 @@
   {{with .Title}}{{.}}{{else}}Nerijus Dulkė{{end}}
 {{end}}
 
+{{define "image"}}
+  {{with .ImageUrl}}{{.}}{{else}}/data/images/default-meta.jpg{{end}}}
+{{end}}
+
 {{define "header"}}
 <!doctype html>
 
@@ -20,11 +24,11 @@
     <meta property="og:description" content="{{template "description" .}}">
     <meta property="twitter:description" content="{{template "description" .}}">
     
-    <meta property="og:image" content="{{.ImageUrl}}">
-    <meta property="twitter:image" content="{{.ImageUrl}}">
+    <meta property="og:image" content="{{template "image" .}}">
+    <meta property="twitter:image" content="{{template "image" .}}">
 
     <meta property="og:type" content="website">
-    <meta property="twitter:card" content="{{ with .ImageUrl }}summary_large_image{{else}}summary{{end}}">
+    <meta property="twitter:card" content="summary_large_image">
     <meta name="viewport" content="width=device-width">
     {{/* <meta http-equiv="refresh" content="5" /> */}}
 
