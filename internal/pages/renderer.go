@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"os"
 	"strings"
+
+	"github.com/nerijusdu/go-portfolio/internal/data"
 )
 
 type NameOrData interface {
@@ -59,5 +61,14 @@ var tempalteFuncs = template.FuncMap{
 	},
 	"paragraphs": func(s string) []string {
 		return strings.Split(s, "\n")
+	},
+	"sliceSkills": func(arr []data.Skill, length, part int) []data.Skill {
+		var res []data.Skill
+		l := len(arr) / length
+		s := (part - 1) * l
+		for i := s; i < s+l; i++ {
+			res = append(res, arr[i])
+		}
+		return res
 	},
 }

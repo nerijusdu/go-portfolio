@@ -15,7 +15,6 @@ func ServeStaticFiles(route string, r chi.Router) {
 	serveDataAssets(route, r)
 	fileServer(r, route, filesDir)
 	serveFileInRoot(route, "/favicon.ico", r)
-	// serveFileInRoot(route, "/robots.txt", r)
 	r.Get("/robots.txt", func(w http.ResponseWriter, r *http.Request) {
 		robots, err := os.ReadFile(filepath.Join(workDir, "www/robots.txt"))
 		if err != nil {

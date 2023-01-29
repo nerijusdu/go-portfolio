@@ -4,30 +4,28 @@
 
 <div class="flex sm:flex-row flex-col border-solid border-b border-slate-700 pr-4">
   <div class="mx-0 sm:mx-6 my-8 w-full h-auto sm:w-36 sm:h-36 shrink-0 flex justify-center">
-    <img
-      src="https://avatars.githubusercontent.com/u/10132882"
-      class="rounded-full w-2/5 sm:w-36 h-auto sm:h-36"
-      alt="This is how I look like"
-    />
+    <img src="https://avatars.githubusercontent.com/u/10132882" class="rounded-full w-2/5 sm:w-36 h-auto sm:h-36"
+      alt="This is how I look like" />
   </div>
 
   <div class="m-4 tracking-wide grow">
     <p class="font-semibold text-3xl pb-2">Hi! 👋</p>
     <p class="text-xl pb-2 font-normal">
-      My name is Nerijus and I'm a full-stack web developer from Lithuania currently working at 
+      My name is Nerijus and I'm a full-stack web developer from Lithuania currently working at
       <a class="text-emerald-500 hover:underline cursor-pointer" href="https://billo.app/">
         Billo<!--
       --></a>.
     </p>
     <p class="text-xl">
-      I love learning new programming languages and technologies and this is a place where I will (try to) document my projects 
+      I love learning new programming languages and technologies and this is a place where I will (try to) document my
+      projects
       and other stuff that I have done.
     </p>
   </div>
 
   <div class="shrink-0 py-4 flex self-start gap-4 mx-4 sm:mr-0">
     <a href="https://github.com/nerijusdu">
-      <img src="/static/icons/github.svg" class="w-7" alt="Github"/>
+      <img src="/static/icons/github.svg" class="w-7" alt="Github" />
     </a>
     <a href="https://www.linkedin.com/in/nerijus-dulke">
       <img src="/static/icons/linkedin.svg" class="w-7" alt="LinkedIn" />
@@ -40,19 +38,28 @@
   Skills
 </div>
 
-<div class="mx-auto p-4 max-w-lg flex flex-col gap-4">
-  {{range .Data.Skills}}
+<div class="mx-auto flex justify-center gap-4">
+  <div class="p-4 max-w-sm flex flex-col gap-4 flex-grow">
+    {{range (sliceSkills .Data.Skills 2 1)}}
     <div class="flex justify-between">
       <div>{{.Name}}</div>
-      {{$level := .Level}}
-      <div class="flex gap-2 items-center">
-        {{range $v := repeat 10}}
-          <div class="sm:h-5 sm:w-5 h-4 w-4 bg-slate-600 rounded-md shadow-md {{if (ge $level $v)}}bg-emerald-600 border-solide border border-emerald-500{{end}}">
-          </div>
-        {{end}}
+      <div class="bg-emerald-700/30 text-green-300 px-3 py-1 rounded-md">
+        {{.Level}}
       </div>
     </div>
-  {{end}}
+    {{end}}
+  </div>
+
+  <div class="p-4 max-w-sm flex flex-col gap-4 flex-grow">
+    {{range (sliceSkills .Data.Skills 2 2)}}
+    <div class="flex justify-between">
+      <div>{{.Name}}</div>
+      <div class="bg-emerald-700/30 text-green-300 px-3 py-1 rounded-md">
+        {{.Level}}
+      </div>
+    </div>
+    {{end}}
+  </div>
 </div>
 
 <div class="text-3xl font-bold pt-4 text-center border-solid border-t border-slate-700">
@@ -61,47 +68,49 @@
 
 <div class="p-4 flex flex-col">
   {{range .Data.Experiences}}
-    <div class="flex sm:gap-8 gap-4">
-      <div class="flex flex-col">
-        <div class="{{if not .Current}}border-l{{end}} border-emerald-500 sm:ml-3 ml-1 grow"> </div>
-        <div class="{{if not .Current}}border border-emerald-500{{else}}bg-emerald-500{{end}} my-2 rounded-full sm:w-6 sm:h-6 w-2 h-2"> </div>
-        <div class="{{if not .First}}border-l{{end}} border-emerald-500 sm:ml-3 ml-1 grow"> </div>
+  <div class="flex sm:gap-8 gap-4">
+    <div class="flex flex-col">
+      <div class="{{if not .Current}}border-l{{end}} border-emerald-500 sm:ml-3 ml-1 grow"> </div>
+      <div
+        class="{{if not .Current}}border border-emerald-500{{else}}bg-emerald-500{{end}} my-2 rounded-full sm:w-6 sm:h-6 w-2 h-2">
       </div>
-      <div class="grow border-solid border border-slate-700 rounded-md p-4 my-2">
-        <div class="flex w-full justify-between">
-          <div class="font-semibold text-xl">{{.Name}}</div>
-          <div>{{.Start}}{{with .End}} - {{.}}{{end}}</div>
-        </div>
-        <div class="border-slate-700 border-b pb-2 grow">
-          {{range $p := paragraphs .Description}}
-            <p>{{$p}}</p>
-          {{end}}
-        </div>
-        <div class="flex pt-2 gap-2 flex-wrap">
-          {{range .Stack}}
-            <div class="bg-emerald-700/30 text-green-300 px-3 py-1 rounded-md">{{.}}</div>
-          {{end}}
-        </div>
+      <div class="{{if not .First}}border-l{{end}} border-emerald-500 sm:ml-3 ml-1 grow"> </div>
+    </div>
+    <div class="grow border-solid border border-slate-700 rounded-md p-4 my-2">
+      <div class="flex w-full justify-between">
+        <div class="font-semibold text-xl">{{.Name}}</div>
+        <div>{{.Start}}{{with .End}} - {{.}}{{end}}</div>
+      </div>
+      <div class="border-slate-700 border-b pb-2 grow">
+        {{range $p := paragraphs .Description}}
+        <p>{{$p}}</p>
+        {{end}}
+      </div>
+      <div class="flex pt-2 gap-2 flex-wrap">
+        {{range .Stack}}
+        <div class="bg-emerald-700/30 text-green-300 px-3 py-1 rounded-md">{{.}}</div>
+        {{end}}
       </div>
     </div>
+  </div>
   {{end}}
 </div>
 
 
 {{/* {{if ne (len .Data.Projects) 0}}
-  <div class="text-3xl font-bold pt-4 text-center border-solid border-t border-slate-700">
-    Some of the things I've made
-  </div>
+<div class="text-3xl font-bold pt-4 text-center border-solid border-t border-slate-700">
+  Some of the things I've made
+</div>
 
-  {{template "projectList" .Data.Projects}}
+{{template "projectList" .Data.Projects}}
 {{end}}
 
 {{if ne (len .Data.Blogs) 0}}
-  <div class="text-3xl font-bold pt-4 text-center">
-    Some of the things I wrote
-  </div>
+<div class="text-3xl font-bold pt-4 text-center">
+  Some of the things I wrote
+</div>
 
-  {{template "blogList" .Data.Blogs}}
+{{template "blogList" .Data.Blogs}}
 {{end}} */}}
 
 {{template "footer" .}}

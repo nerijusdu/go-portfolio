@@ -37,7 +37,7 @@ type Blog struct {
 
 type Skill struct {
 	Name  string `yaml:"name"`
-	Level int    `yaml:"level"`
+	Level string `yaml:"level"`
 }
 
 type Experience struct {
