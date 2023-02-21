@@ -5,7 +5,7 @@ on:
 
 env:
   TEMPLATE_ID: ee823827-790a-470b-96cc-34a1baf873c1
-  API_URL: vesa.nerijusdulke.lt
+  API_URL: https://vesa.nerijusdulke.lt
   TAG: latest
 
 jobs:
