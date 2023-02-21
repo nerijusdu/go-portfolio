@@ -41,6 +41,14 @@
     - Next.js
     - React
     - Prisma
+- slug: vesa
+  name: Vesa
+  description: A docker-compose alternative with a GUI
+  repositoryUrl: https://github.com/nerijusdu/vesa
+  tags:
+    - Go
+    - TypeScript
+    - React
 - slug: express-swagger-generator
   name: Express Swagger generator
   description: OpenAPI docks generator for typescript + express API

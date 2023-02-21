@@ -1,0 +1,85 @@
+name: Vesa release
+
+on:
+  workflow_dispatch:
+
+env:
+  TEMPLATE_ID: ee823827-790a-470b-96cc-34a1baf873c1
+  API_URL: vesa.nerijusdulke.lt
+  TAG: latest
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # - name: Set version hash
+      #   run: |
+      #     export VERSION_HASH=$(echo "${{github.sha}}" | cut -c1-6)
+      #     echo "VERSION_HASH=$VERSION_HASH" >> $GITHUB_ENV
+      #
+      # - name: Run npm install
+      #   run: npm ci
+      #
+      # - name: Build CSS
+      #   run: |
+      #     export VERSION_HASH=${{ env.VERSION_HASH }}
+      #     npm run build:css
+      #
+      # - name: Build image
+      #   run: docker build . --file Dockerfile --tag $IMAGE_NAME --build-arg VERSION_HASH=${{ env.VERSION_HASH }}
+      #
+      # - uses: docker/login-action@v1
+      #   with:
+      #     registry: registry.nerijusdulke.lt
+      #     username: nerijus 
+      #     password: ${{ secrets.DOCKER_PASS }}
+      #
+      # - name: Push image to container registry
+      #   run: |
+      #     IMAGE_ID=registry.nerijusdulke.lt/$IMAGE_NAME
+      #     VERSION=latest
+      #
+      #     echo IMAGE_ID=$IMAGE_ID
+      #     echo VERSION=$VERSION
+      #     echo VERSION_HASH=$VERSION_HASH
+      #
+      #     docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
+      #     docker push $IMAGE_ID:$VERSION
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Use latest docker image
+        env:
+          VESA_CLIENT_ID: 'github'
+          VESA_CLIENT_SECRET: ${{ secrets.VESA_CLIENT_SECRET }}
+        run: |
+          c=`cat <<EOF
+            import urllib.request
+            import urllib.parse
+            import json
+            import os
+
+            apiUrl = os.environ['API_URL']
+            clientId = os.environ['VESA_CLIENT_ID']
+            clientSecret = os.environ['VESA_CLIENT_SECRET']
+            templateId = os.environ['TEMPLATE_ID']
+            tag = os.environ['TAG']
+
+            print('Fetching auth token')
+            data = urllib.parse.urlencode({'grant_type': 'client_credentials', 'client_id': clientId, 'client_secret': clientSecret})
+            data = data.encode('ascii')
+            f = urllib.request.urlopen(apiUrl + '/api/auth', data)
+            j = f.read().decode('utf-8')
+            token = json.loads(j)['access_token']
+
+            print('Updating template')
+            req = urllib.request.Request(apiUrl+'/api/templates/'+templateId+'/update?tag='+tag, urllib.parse.urlencode({}).encode('ascii'))
+            req.add_header('Authorization', 'Bearer ' + token)
+            res = urllib.request.urlopen(req)
+
+            print('Done')
+          `
+          python -c "$c"
