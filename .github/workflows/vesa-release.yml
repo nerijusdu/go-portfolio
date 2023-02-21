@@ -57,29 +57,29 @@ jobs:
           VESA_CLIENT_SECRET: ${{ secrets.VESA_CLIENT_SECRET }}
         run: |
           c=`cat <<EOF
-  import urllib.request
-  import urllib.parse
-  import json
-  import os
+          import urllib.request
+          import urllib.parse
+          import json
+          import os
 
-  apiUrl = os.environ['API_URL']
-  clientId = os.environ['VESA_CLIENT_ID']
-  clientSecret = os.environ['VESA_CLIENT_SECRET']
-  templateId = os.environ['TEMPLATE_ID']
-  tag = os.environ['TAG']
+          apiUrl = os.environ['API_URL']
+          clientId = os.environ['VESA_CLIENT_ID']
+          clientSecret = os.environ['VESA_CLIENT_SECRET']
+          templateId = os.environ['TEMPLATE_ID']
+          tag = os.environ['TAG']
 
-  print('Fetching auth token')
-  data = urllib.parse.urlencode({'grant_type': 'client_credentials', 'client_id': clientId, 'client_secret': clientSecret})
-  data = data.encode('ascii')
-  f = urllib.request.urlopen(apiUrl + '/api/auth', data)
-  j = f.read().decode('utf-8')
-  token = json.loads(j)['access_token']
+          print('Fetching auth token')
+          data = urllib.parse.urlencode({'grant_type': 'client_credentials', 'client_id': clientId, 'client_secret': clientSecret})
+          data = data.encode('ascii')
+          f = urllib.request.urlopen(apiUrl + '/api/auth', data)
+          j = f.read().decode('utf-8')
+          token = json.loads(j)['access_token']
 
-  print('Updating template')
-  req = urllib.request.Request(apiUrl+'/api/templates/'+templateId+'/update?tag='+tag, urllib.parse.urlencode({}).encode('ascii'))
-  req.add_header('Authorization', 'Bearer ' + token)
-  res = urllib.request.urlopen(req)
+          print('Updating template')
+          req = urllib.request.Request(apiUrl+'/api/templates/'+templateId+'/update?tag='+tag, urllib.parse.urlencode({}).encode('ascii'))
+          req.add_header('Authorization', 'Bearer ' + token)
+          res = urllib.request.urlopen(req)
 
-  print('Done')
+          print('Done')
           EOF`
           python -c "$c"
