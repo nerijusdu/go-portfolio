@@ -81,5 +81,5 @@ jobs:
             res = urllib.request.urlopen(req)
 
             print('Done')
-          `
+          EOF`
           python -c "$c"
