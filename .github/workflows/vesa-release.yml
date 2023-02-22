@@ -59,5 +59,4 @@ jobs:
           VESA_CLIENT_ID: ${{ env.VESA_CLIENT_ID }} 
           VESA_CLIENT_SECRET: ${{ secrets.VESA_CLIENT_SECRET }}
           TAG: latest
-        run: |
-          python .github/workflows/vesa-release.py
+        run: python .github/workflows/vesa-release.py
