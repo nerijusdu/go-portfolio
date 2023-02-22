@@ -56,7 +56,7 @@ jobs:
         env:
           VESA_CLIENT_ID: ${{ env.VESA_CLIENT_ID }} 
           VESA_CLIENT_SECRET: ${{ secrets.VESA_CLIENT_SECRET }}
-          TAG: ${{ env.VERSION_HASH }}
+          TAG: latest
         run: |
           c=`cat <<EOF
           import urllib.request
