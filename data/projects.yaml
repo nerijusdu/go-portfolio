@@ -44,6 +44,7 @@
 - slug: vesa
   name: Vesa
   description: A docker-compose alternative with a GUI
+  longDescriptionPath: projects/vesa.md
   repositoryUrl: https://github.com/nerijusdu/vesa
   tags:
     - Go
