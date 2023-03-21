@@ -3,6 +3,7 @@
   title: My side project setup
   description: How I host and deploy my side projects
   path: blogs/my-server-setup.md
+  imageUrl: /data/images/containers-everywhere.jpg
 - slug: overengineer-a-button
   date: 2022-09-05
   title: How to over-engineer a button
