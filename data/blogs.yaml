@@ -1,3 +1,8 @@
+- slug: my-server-setup
+  date: 2023-03-04
+  title: My side project setup
+  description: How I host and deploy my side projects
+  path: blogs/my-server-setup.md
 - slug: overengineer-a-button
   date: 2022-09-05
   title: How to over-engineer a button
@@ -9,8 +14,3 @@
   title: Building a production grade side project
   description: Write-up on my journey building Save My Bank
   path: projects/save-my-bank.md
-- slug: my-server-setup
-  date: 2023-03-04
-  title: My side project setup
-  description: How I host and deploy my side projects
-  path: blogs/my-server-setup.md
