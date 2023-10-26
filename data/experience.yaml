@@ -6,6 +6,7 @@
     - React
     - SQL
     - Go
+    - AWS
   description: |
     Building a marketplace for eCom videos, moving from monolithic to microservice architecture, fighting performance issues.
   start: Feb 2022

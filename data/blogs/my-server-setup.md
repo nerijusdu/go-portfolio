@@ -10,7 +10,7 @@ To host my side projects, I rent a VPS instead of using cloud hosting mainly bec
 
 But, Nerijus, I hear you ask, most cloud providers give you a free tier for your projects, why not use that? Well, because they are extremely slow! I know I just said I don't have any users using my projects, but it's so slow even when I'm the only person using it, it's almost useless if more users try to use it.
 
-I pay around 40€/year for my VPS, it has 2 cores, 2GB of RAM, 40GB SSD space, and 2TB bandwith.
+I pay around 40€/year for my VPS, it has 2 cores, 2GB of RAM, 40GB SSD space, and 2TB bandwidth.
 It is running these things (mostly in docker containers) with no trouble:
 
 - 3 Go apps/sites

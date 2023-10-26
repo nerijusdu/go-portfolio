@@ -49,4 +49,12 @@ It also periodically checks the status of the applications and lights up the LED
 
 ## Conclusion
 
-I guess I could've written everything in Python but I don't really enjoy writing Python and I wanted to improve my Go skills, so it became a fun over-engineering example. I'm very happy with the result, it was a lot of fun to build and hella fun to use.
+I guess I could've written everything in Python but I don't really enjoy writing Python and I wanted to improve my Go skills, so it became a fun over-engineering example. I'm very happy with the result, it was a lot of fun to build and hella fun to use. 
+
+All the code is available on [GitHub](https://github.com/nerijusdu/release-button).
+
+And here's how it looks in the end:
+
+<div class="img-md">
+![Release button picture](/data/images/release-button-pic.jpg)
+</div><!---->
