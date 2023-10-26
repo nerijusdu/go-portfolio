@@ -19,21 +19,21 @@ The software is written in Go and Python.
 
 When I started this project I was learning Go, so my first thought was to write everything in Go. My first steps were to find a package that would handle the GPIO for me, so I could just `if button.pressed() { doThings() }`, unfortunately things are never that easy.
 
-I tried a few packages but for some reason none of them handled my button pressess consistently, for some packages I always had to press the button a few times for it to register the click, and for some packages, the button clicks were registerd when I was not clicking it (and that's not an option when I'm trying to make a button do releases to production).
+I tried a few packages but for some reason none of them handled my button presses consistently, for some packages I always had to press the button a few times for it to register the click, and for some packages, the button clicks were registered when I was not clicking it (and that's not an option when I'm trying to make a button do releases to production).
 
 Then I remembered that Raspberry Pi and Python are good friends.
 
 <div class="img-md">
-![Raspberry and Python beaing good friends](/data/images/raspberry-python.jpg)
+![Raspberry and Python being good friends](/data/images/raspberry-python.jpg)
 </div><!---->
 
 I tried to make a test app using Python, just to check if I wired everything correctly. And surprise! Everything works perfectly, every button click counts and no accidental clicks are registered. But I don't really like Python, I didn't want to write this whole project in Python so I kept testing different Go packages. Then the most brilliant idea came to my head, what if I over-engineered this and make it a microservice architecture. 
 
 <div class="img-md">
-![Overengineering meme](/data/images/over-engineering.jpg)
+![Over-engineering meme](/data/images/over-engineering.jpg)
 </div><!---->
 
-And that's exactly what I did. I wrote a microservice in Python that would control the GPIO pins and all the hardware and I put all the bussines logic in a separate service written in Go. 
+And that's exactly what I did. I wrote a microservice in Python that would control the GPIO pins and all the hardware and I put all the business logic in a separate service written in Go. And I also wrote a web UI with React for configuring the button just to make it even more over-engineered.
 
 ## IO Service
 
@@ -49,4 +49,4 @@ It also periodically checks the status of the applications and lights up the LED
 
 ## Conclusion
 
-I guess I could've written everything in Python but I don't really like writting Python and I wanted to improve my Go skills, so it became a fun over-engineering example. I'm very happy with the result, it was a lot of fun to build and hella fun to use.
+I guess I could've written everything in Python but I don't really enjoy writing Python and I wanted to improve my Go skills, so it became a fun over-engineering example. I'm very happy with the result, it was a lot of fun to build and hella fun to use.
