@@ -11,22 +11,22 @@
 
 <html lang="en">
   <head>
-    <meta property="og:type" content="website">
-    <meta property="twitter:card" content="{{ with .ImageUrl }}summary_large_image{{else}}summary{{end}}">
+    <meta name="og:type" content="website">
+    <meta name="twitter:card" content="{{ with .ImageUrl }}summary_large_image{{else}}summary{{end}}">
     
     <title>{{template "title" .}}</title>
     <meta name="title" content="{{template "title" .}}">
-    <meta property="og:title" content="{{template "title" .}}">
-    <meta property="twitter:title" content="{{template "title" .}}">
+    <meta name="og:title" content="{{template "title" .}}">
+    <meta name="twitter:title" content="{{template "title" .}}">
 
     <meta name="description" content="{{template "description" .}}">
-    <meta property="og:description" content="{{template "description" .}}">
-    <meta property="twitter:description" content="{{template "description" .}}">
+    <meta name="og:description" content="{{template "description" .}}">
+    <meta name="twitter:description" content="{{template "description" .}}">
     
     {{ with .ImageUrl }}
-      <meta property="og:image" content="https://nerijusdulke.lt{{.}}">
-      <meta property="og:image:secure_url" content="https://nerijusdulke.lt{{.}}">
-      <meta property="twitter:image:src" content="https://nerijusdulke.lt{{.}}">
+      <meta name="og:image" content="https://nerijusdulke.lt{{.}}">
+      <meta name="og:image:secure_url" content="https://nerijusdulke.lt{{.}}">
+      <meta name="twitter:image:src" content="https://nerijusdulke.lt{{.}}">
     {{end}}
 
     <meta name="viewport" content="width=device-width">
