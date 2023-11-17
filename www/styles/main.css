@@ -12,10 +12,19 @@
     max-width: 18rem;
   }
 
-  .img-md, .img-lg {
+  .img-md,
+  .img-lg,
+  .img-sm {
     width: 100%;
     display: flex;
     justify-content: center;
+  }
+
+  .img-sm img {
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 200px;
+    min-height: 200px;
   }
 
   .img-md img {
@@ -24,7 +33,7 @@
     min-width: 200px;
     min-height: 200px;
   }
-  
+
   .img-lg img {
     max-width: 700px;
     max-height: 700px;
@@ -35,7 +44,7 @@
   .markdown {
     @apply leading-normal break-words;
   }
-  
+
   .markdown>*+* {
     @apply mt-0 mb-4;
   }

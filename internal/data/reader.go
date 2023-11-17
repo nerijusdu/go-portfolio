@@ -21,7 +21,7 @@ func readProjects() ([]Project, error) {
 		if p := projects[i]; p.LongDescriptionPath != "" {
 			html, err := mdPathToHtml(p.LongDescriptionPath)
 			if err != nil {
-				return nil, fmt.Errorf("Failed to parse MD for project: %s. %v", p.Slug, err)
+				return nil, fmt.Errorf("failed to parse MD for project: %s. %v", p.Slug, err)
 			}
 
 			projects[i].LongDescriptionHTML = html
@@ -45,7 +45,7 @@ func readBlogs() ([]Blog, error) {
 		if b := blogs[i]; b.Path != "" {
 			html, err := mdPathToHtml(b.Path)
 			if err != nil {
-				return nil, fmt.Errorf("Failed to parse MD for blog: %s. %v", b.Slug, err)
+				return nil, fmt.Errorf("failed to parse MD for blog: %s. %v", b.Slug, err)
 			}
 
 			blogs[i].HTML = html
@@ -88,7 +88,10 @@ func mdPathToHtml(path string) (template.HTML, error) {
 	output := markdown.ToHTML(
 		content,
 		nil,
-		html.NewRenderer(html.RendererOptions{Flags: html.LazyLoadImages}),
+		html.NewRenderer(html.RendererOptions{
+			Flags:          html.LazyLoadImages | html.HrefTargetBlank,
+			RenderNodeHook: highlightingRenderHook,
+		}),
 	)
 
 	return template.HTML(output), nil
