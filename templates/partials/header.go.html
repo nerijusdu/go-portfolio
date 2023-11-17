@@ -1,44 +1,41 @@
 {{define "description"}}
-{{with .Description}}{{.}}{{else}}Hi! I'm Nerjus, a software engineer from Lithuania and this is where I show off my
-side projects and other cool stuff.{{end}}
+  {{with .Description}}{{.}}{{else}}Hi! I'm Nerijus, a software engineer from Lithuania and this is where I show off my side projects and other cool stuff.{{end}}
 {{end}}
 
 {{define "title"}}
-{{with .Title}}{{.}}{{else}}Nerijus Dulkė{{end}}
+  {{with .Title}}{{.}}{{else}}Nerijus Dulkė{{end}}
 {{end}}
 
 {{define "header"}}
 <!doctype html>
 
 <html lang="en">
+  <head>
+    <meta name="og:type" content="website">
+    <meta name="twitter:card" content="{{ with .ImageUrl }}summary_large_image{{else}}summary{{end}}">
+    
+    <title>{{template "title" .}}</title>
+    <meta name="title" content="{{template "title" .}}">
+    <meta name="og:title" content="{{template "title" .}}">
+    <meta name="twitter:title" content="{{template "title" .}}">
 
-<head>
-  <meta name="og:type" content="website">
-  <meta name="twitter:card" content="{{ with .ImageUrl }}summary_large_image{{else}}summary{{end}}">
+    <meta name="description" content="{{template "description" .}}">
+    <meta name="og:description" content="{{template "description" .}}">
+    <meta name="twitter:description" content="{{template "description" .}}">
+    
+    {{ with .ImageUrl }}
+      <meta name="og:image" content="https://nerijusdulke.lt{{.}}">
+      <meta name="og:image:secure_url" content="https://nerijusdulke.lt{{.}}">
+      <meta name="twitter:image" content="https://nerijusdulke.lt{{.}}">
+    {{end}}
 
-  <title>{{template "title" .}}</title>
-  <meta name="title" content="{{template " title" .}}">
-  <meta name="og:title" content="{{template " title" .}}">
-  <meta name="twitter:title" content="{{template " title" .}}">
+    <meta name="viewport" content="width=device-width">
+    {{/* <meta http-equiv="refresh" content="5" /> */}}
 
-  <meta name="description" content="{{template " description" .}}">
-  <meta name="og:description" content="{{template " description" .}}">
-  <meta name="twitter:description" content="{{template " description" .}}">
+    <link rel="stylesheet" href="/static/styles/main-{{with .Version}}{{.}}{{end}}.min.css" />
 
-  {{ with .ImageUrl }}
-  <meta name="og:image" content="https://nerijusdulke.lt{{.}}">
-  <meta name="og:image:secure_url" content="https://nerijusdulke.lt{{.}}">
-  <meta name="twitter:image" content="https://nerijusdulke.lt{{.}}">
-  {{end}}
+    <script async defer data-domain="nerijusdulke.lt" src="https://analytics.nerijusdulke.lt/js/plausible.js"></script>
+  </head>
 
-  <meta name="viewport" content="width=device-width">
-  {{/*
-  <meta http-equiv="refresh" content="5" /> */}}
-
-  <link rel="stylesheet" href="/static/styles/main-{{with .Version}}{{.}}{{end}}.min.css" />
-
-  <script async defer data-domain="nerijusdulke.lt" src="https://analytics.nerijusdulke.lt/js/plausible.js"></script>
-</head>
-
-<body class="bg-background-1 text-white font-roboto max-w-5xl mx-auto">
-  {{end}}
+  <body class="bg-background-1 text-white font-roboto max-w-5xl mx-auto">
+{{end}}
