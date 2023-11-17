@@ -60,7 +60,7 @@ func htmlHighlight(w io.Writer, source, lang, defaultLang string) error {
 	if err != nil {
 		return err
 	}
-	w.Write([]byte("<style>"))
+	w.Write([]byte("</style>"))
 
 	return nil
 }

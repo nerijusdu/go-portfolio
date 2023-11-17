@@ -1,15 +1,21 @@
-- slug: my-server-setup
-  date: 2023-03-04
-  title: My side project setup
-  description: How I host and deploy my side projects
-  path: blogs/my-server-setup.md
-  imageUrl: /data/images/containers-everywhere.jpg
+- slug: raspberry-phone
+  date: 2023-11-17
+  title: Connecting an old phone to a Raspberry Pi
+  description: Use an old landline phone to make releases to production
+  path: blogs/raspberry-phone.md
+  imageUrl: /data/images/phone/result.jpg
 - slug: overengineer-a-button
   date: 2022-09-05
   title: How to over-engineer a button
   description: Making a physical button for Argo CD releases 
   path: projects/release-button.md 
   imageUrl: /data/images/release-button.jpg
+- slug: my-server-setup
+  date: 2023-03-04
+  title: My side project setup
+  description: How I host and deploy my side projects
+  path: blogs/my-server-setup.md
+  imageUrl: /data/images/containers-everywhere.jpg
 - slug: building-production-grade-side-project
   date: 2022-09-07
   title: Building a production grade side project
