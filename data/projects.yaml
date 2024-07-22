@@ -9,8 +9,18 @@
     - Go
     - Tailwind
   highlighted: true
+- slug: lingvistas
+  name: Lingvistas.lt
+  description: A platform for learning english language
+  url: https://lingvistas.lt
+  imageUrl: /data/images/lingvistas.png
+  tags:
+    - TypeScript
+    - React
+    - Next.js
+    - Prisma
+  highlighted: true
 - slug: save-my-bank
-  priority: 100
   name: Save My Bank
   description: Budgeting platform
   longDescriptionPath: projects/save-my-bank.md
@@ -82,14 +92,6 @@
     - TypeScript
     - Vue.js
     - Node.js
-- slug: friender
-  name: Friender
-  description: Minimal social network I made for my friends university assignment. Built with Remix.run and ChakraUI.
-  repositoryUrl: https://github.com/nerijusdu/friender
-  tags:
-    - TypeScript
-    - Remix
-    - React
 - slug: github
   name: That's not all!
   description: These are not all the projects I've made. Check out my github I have over 30 repositories!

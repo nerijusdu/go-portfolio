@@ -1,3 +1,13 @@
+- name: Mokausi Lietuvoje
+  stack:
+    - TypeScript
+    - React
+    - Nest.js
+  description: |
+    A platform to help people sign up for educational institutions in Lithuania.
+  start: Jul 2024
+  end: Now
+  current: true
 - name: Billo.app
   stack:
     - TypeScript/JavaScript
@@ -10,8 +20,7 @@
   description: |
     Building a marketplace for eCom videos, moving from monolithic to microservice architecture, fighting performance issues.
   start: Feb 2022
-  end: Now
-  current: true
+  end: Jun 2024
 - name: Devbridge
   stack:
     - .NET/C#
