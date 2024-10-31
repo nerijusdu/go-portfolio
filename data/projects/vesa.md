@@ -24,8 +24,7 @@ VESA provides a github action that connects to VESA API and deploy your changes.
 
 ### Routing
 
-The plan is to make VESA configure Nginx, Traefik or simmilar reverse proxy, so you wouldn't need to connect to your server at all to deploy a new project.
-However, this is still under development.
+VESA uses [Traefik](https://doc.traefik.io/traefik/) as a reverse proxy to route traffic to containers or host services. It also allows you to setup SSL certificates for your domains very easily.
 
 ## Why does this exist?
 
@@ -43,5 +42,5 @@ Web UI is built with my standard frontend stack:
 - React Hook Form
 
 Backend is build with Go and is using [Docker Engine SDK](https://docs.docker.com/engine/api/sdk).
-I'm not using any databae, just saving everything to json files, because there's not a lot of data and it's easier to share or duplicate your setup.
+I'm not using any database, just saving everything to json files, because there's not a lot of data and it's easier to share or duplicate your setup.
 

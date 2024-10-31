@@ -1,7 +1,10 @@
 name: Vesa release
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+
 
 env:
   TEMPLATE_ID: ee823827-790a-470b-96cc-34a1baf873c1
@@ -49,14 +52,10 @@ jobs:
           echo VERSION_HASH=$VERSION_HASH
 
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-      - name: setup python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
       - name: Use latest docker image
-        env:
-          VESA_CLIENT_ID: ${{ env.VESA_CLIENT_ID }} 
-          VESA_CLIENT_SECRET: ${{ secrets.VESA_CLIENT_SECRET }}
-          TAG: latest
-        run: python .github/workflows/vesa-release.py
+        uses: distributhor/workflow-webhook@v3
+        with:
+          webhook_url: ${{ env.API_URL }}/api/templates/${{ env.TEMPLATE_ID }}/update?tag=${{ env.TAG }}
+          webhook_auth_type: bearer
+          webhook_auth: ${{ secrets.VESA_CLIENT_SECRET }}
+          docker push $IMAGE_ID:$VERSION
