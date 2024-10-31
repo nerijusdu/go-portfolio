@@ -52,10 +52,11 @@ jobs:
           echo VERSION_HASH=$VERSION_HASH
 
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:$VERSION
+
       - name: Use latest docker image
         uses: distributhor/workflow-webhook@v3
         with:
           webhook_url: ${{ env.API_URL }}/api/templates/${{ env.TEMPLATE_ID }}/update?tag=${{ env.TAG }}
           webhook_auth_type: bearer
           webhook_auth: ${{ secrets.VESA_CLIENT_SECRET }}
-          docker push $IMAGE_ID:$VERSION
