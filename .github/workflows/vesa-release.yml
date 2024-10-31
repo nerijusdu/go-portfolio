@@ -57,6 +57,6 @@ jobs:
       - name: Use latest docker image
         uses: distributhor/workflow-webhook@v3
         with:
-          webhook_url: ${{ env.API_URL }}/api/templates/${{ env.TEMPLATE_ID }}/update?tag=${{ env.TAG }}
+          webhook_url: ${{ env.API_URL }}/api/templates/${{ env.TEMPLATE_ID }}/update?tag=latest
           webhook_auth_type: bearer
           webhook_auth: ${{ secrets.VESA_CLIENT_SECRET }}
