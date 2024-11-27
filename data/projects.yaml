@@ -20,6 +20,16 @@
     - Next.js
     - Prisma
   highlighted: true
+- slug: mano-akimirka
+  name: ManoAkimirka.lt
+  description: A photo sharing platform for events
+  url: https://manoakimirka.lt
+  imageUrl: /data/images/mano-akimirka.png
+  tags:
+    - TypeScript
+    - React
+    - Express
+    - Drizzle
 - slug: save-my-bank
   name: Save My Bank
   description: Budgeting platform
@@ -65,7 +75,7 @@
   description: OpenAPI docks generator for typescript + express API
   longDescriptionPath: projects/express-swagger-generator.md
   repositoryUrl: https://github.com/nerijusdu/swagger-generator
-  tags: 
+  tags:
     - TypeScript
 - slug: bingo-bot
   name: Slack Bingo Bot
