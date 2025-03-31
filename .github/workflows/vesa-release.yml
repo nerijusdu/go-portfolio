@@ -40,7 +40,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY_URL }}
           username: ${{ env.REGISTRY_USER }}
-          password: ${{ secrets.DOCKER_PASS }}
+          password: ${{ secrets.REGISTRY_PASS }}
 
       - name: Push image to container registry
         run: |
