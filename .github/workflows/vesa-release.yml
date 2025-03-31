@@ -7,9 +7,9 @@ on:
 
 
 env:
-  TEMPLATE_ID: ee823827-790a-470b-96cc-34a1baf873c1
+  TEMPLATE_ID: 34dc0585-9b4d-408d-a748-f9a9f0eb788f
   API_URL: https://vesa.nerijusdulke.lt
-  REGISTRY_URL: registry.nerijusdulke.lt
+  REGISTRY_URL: nerijus.azurecr.io
   REGISTRY_USER: nerijus
   VESA_CLIENT_ID: github
   IMAGE_NAME: go-portfolio
@@ -39,7 +39,7 @@ jobs:
       - uses: docker/login-action@v1
         with:
           registry: ${{ env.REGISTRY_URL }}
-          username: ${{ env.REGISTRY_USER }} 
+          username: ${{ env.REGISTRY_USER }}
           password: ${{ secrets.DOCKER_PASS }}
 
       - name: Push image to container registry

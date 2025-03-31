@@ -34,7 +34,7 @@
   name: Save My Bank
   description: Budgeting platform
   longDescriptionPath: projects/save-my-bank.md
-  url: https://savemybank.lt
+  url: https://savemybank.nerijusdulke.lt
   imageUrl: /data/images/save-my-bank.png
   highlighted: true
   tags:
@@ -55,7 +55,7 @@
 - slug: nezinau-ka-valgyt
   name: Nežinau ką valgyt
   description: A meal planner for the week (WIP)
-  url: https://nezinaukavalgyt.lt
+  url: https://nezinaukavalgyt.nerijusdulke.lt
   tags:
     - TypeScript
     - Next.js
