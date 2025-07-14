@@ -30,13 +30,13 @@
     - React
     - Express
     - Drizzle
+  highlighted: true
 - slug: save-my-bank
   name: Save My Bank
   description: Budgeting platform
   longDescriptionPath: projects/save-my-bank.md
   url: https://savemybank.nerijusdulke.lt
   imageUrl: /data/images/save-my-bank.png
-  highlighted: true
   tags:
     - .NET
     - C#
@@ -66,6 +66,7 @@
   description: A docker-compose alternative with a GUI
   longDescriptionPath: projects/vesa.md
   repositoryUrl: https://github.com/nerijusdu/vesa
+  highlighted: true
   tags:
     - Go
     - TypeScript
@@ -83,7 +84,6 @@
   longDescriptionPath: projects/bingo-bot.md
   imageUrl: /data/images/bingo-bot.png
   repositoryUrl: https://github.com/nerijusdu/bingo-bot
-  highlighted: true
   tags:
     - Go
 - slug: chip-8
