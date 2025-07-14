@@ -5,12 +5,10 @@ on:
     branches:
       - main
 
-
 env:
   TEMPLATE_ID: 34dc0585-9b4d-408d-a748-f9a9f0eb788f
   API_URL: https://vesa.nerijusdulke.lt
-  REGISTRY_URL: nerijus.azurecr.io
-  REGISTRY_USER: nerijus
+  SERVER_USER: nerijus
   VESA_CLIENT_ID: github
   IMAGE_NAME: go-portfolio
 
@@ -36,23 +34,15 @@ jobs:
       - name: Build image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME --build-arg VERSION_HASH=${{ env.VERSION_HASH }}
 
-      - uses: docker/login-action@v1
+      - name: Add server to known hosts
+        run: mkdir -p ~/.ssh/ && touch ~/.ssh/known_hosts && ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to production
+        uses: sonofbytes/unregistry-action@v0.1.0
         with:
-          registry: ${{ env.REGISTRY_URL }}
-          username: ${{ env.REGISTRY_USER }}
-          password: ${{ secrets.REGISTRY_PASS }}
-
-      - name: Push image to container registry
-        run: |
-          IMAGE_ID=$REGISTRY_URL/$IMAGE_NAME
-          VERSION=latest
-
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-          echo VERSION_HASH=$VERSION_HASH
-
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
+          image: ${{ env.IMAGE_NAME }}
+          destination: ${{ env.SERVER_USER }}@${{ secrets.SERVER_HOST }}
+          ssh_key: ${{ secrets.SERVER_SSH_KEY }}
 
       - name: Use latest docker image
         uses: distributhor/workflow-webhook@v3

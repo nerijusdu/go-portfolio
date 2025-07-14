@@ -20,10 +20,10 @@
     - Next.js
     - Prisma
   highlighted: true
-- slug: mano-akimirka
-  name: ManoAkimirka.lt
+- slug: photo-storehouse
+  name: Photo Storehouse
   description: A photo sharing platform for events
-  url: https://manoakimirka.lt
+  url: https://photostorehouse.com
   imageUrl: /data/images/mano-akimirka.png
   tags:
     - TypeScript
