@@ -21,6 +21,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set version hash
+        run: |
+          export VERSION_HASH=$(echo "${{github.sha}}" | cut -c1-6)
+          echo "VERSION_HASH=$VERSION_HASH" >> $GITHUB_ENV
+
       - name: Run npm install
         run: npm ci
 
