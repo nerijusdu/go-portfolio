@@ -1,9 +1,10 @@
 name: Vesa release
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
 
 env:
   TEMPLATE_ID: 34dc0585-9b4d-408d-a748-f9a9f0eb788f

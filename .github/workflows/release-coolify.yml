@@ -1,0 +1,48 @@
+name: Coolify release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+env:
+  REGISTRY: ${{ secrets.REGISTRY_HOST }}
+  IMAGE_NAME: portfolio
+  IMAGE_TAG: latest
+  BUILD_CONTEXT: .
+  DOCKERFILE: Dockerfile
+  COOLIFY_WEBHOOK_URL: ${{ secrets.COOLIFY_WEBHOOK_URL }}
+  COOLIFY_WEBHOOK_TOKEN: ${{ secrets.COOLIFY_WEBHOOK_TOKEN }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Build and push image
+        uses: docker/build-push-action@v5
+        with:
+          context: ${{ env.BUILD_CONTEXT }}
+          file: ${{ env.DOCKERFILE }}
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Trigger Coolify release
+        uses: distributhor/workflow-webhook@v3
+        with:
+          webhook_url: ${{ env.COOLIFY_WEBHOOK_URL }}
+          webhook_auth_type: bearer
+          webhook_auth: ${{ env.COOLIFY_WEBHOOK_TOKEN }}
