@@ -21,6 +21,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Run npm install
+        run: npm ci
+
+      - name: Build CSS
+        run: |
+          export VERSION_HASH=${{ env.VERSION_HASH }}
+          npm run build:css
+
       - name: Log in to registry
         uses: docker/login-action@v3
         with:
